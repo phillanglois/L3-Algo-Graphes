@@ -1,31 +1,3 @@
----
-jupytext:
-  notebook_metadata_filter: rise
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-rise:
-  auto_select: first
-  autolaunch: false
-  centered: false
-  controls: false
-  enable_chalkboard: true
-  height: 100%
-  margin: 0
-  maxScale: 1
-  minScale: 1
-  scroll: true
-  slideNumber: true
-  start_slideshow_at: selected
-  transition: none
-  width: 90%
----
-
 # Algorithmique des graphes
 
 
