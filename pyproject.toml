@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "isd-algo-avancee"
+description = "Salle de TP virtuelle pour le cours «M1 ISD: Algorithmique Avancée"
+keywords = ["Graphes", "Enseignement", "Travo"]
+version = "0.5"
+license = "CC-BY-SA-4.0"
+authors = [
+  { name = "Nicolas M. Thiéry et al.", email= "Nicolas.Thiery@universite-paris-saclay.fr" }
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Information Technology",
+  "Topic :: Scientific/Engineering",
+  "Programming Language :: Python :: 3",
+]  # classifiers list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+requires-python = "==3.13.*"
+readme = "README.md"
+dependencies = [
+    "nbformat>=5.11.1",
+    "pip>=25.2",
+]
+
+[dependency-groups]
+book = [
+    "ipydatagrid",
+    "jupyter-book<2",
+    "linkify-it-py",
+    "numpy",
+    "matplotlib>=3.9.0",
+    "ipympl",
+    # used by the local extension "semantic"
+    "sphinx-proof>=0.2.1",
+]
+dev = [
+    "jupyterlab",
+    "jupyterlab-myst",
+    "jupyterlab-slideshow",
+    "jupyterlab-tour",
+    "ipympl",
+    "jupytext",
+    "ipython",
+    "jupylates @ git+https://gitlab.dsi.universite-paris-saclay.fr/jupyter/jupylates.git@learner-models",
+    "travo[jupyter] >=2.0",
+    # For Computations
+    "numpy",
+    "networkx",
+    "bqplot",
+    "ipydatagrid",
+    "graph-algorithm-player @ git+https://gitlab.dsi.universite-paris-saclay.fr/nicolas.thiery/GraphAlgorithmPlayer.git",
+    # For code validation
+    "ruff",
+    "mypy",
+    "types-setuptools",
+    "typeguard",
+    "pytest"
+]
+format = [
+    "ruff>=0.8.6",
+    "mdformat-py-edu-fr @ http://foss.heptapod.net/py-edu-fr/mdformat-py-edu-fr/-/archive/0.1.3/mdformat-py-edu-fr.tar.gz",
+]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"install_files/" = "/"
+
+[tool.mypy]
+files = "*.py"
+warn_return_any = "True"
+warn_unused_configs = "True"
+disallow_untyped_defs = "True"
+disallow_untyped_calls = "True"
+disallow_incomplete_defs = "True"
+check_untyped_defs = "True"
+no_implicit_optional = "True"
+scripts_are_modules = "True"
