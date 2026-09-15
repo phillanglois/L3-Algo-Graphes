@@ -22,6 +22,7 @@ readme = "README.md"
 dependencies = [
     "nbformat>=5.11.1",
     "pip>=25.2",
+    "travo-prepare",
 ]
 
 [dependency-groups]
@@ -76,3 +77,6 @@ disallow_incomplete_defs = "True"
 check_untyped_defs = "True"
 no_implicit_optional = "True"
 scripts_are_modules = "True"
+
+[tool.uv.sources]
+travo-prepare = { git = "https://gitlab.com/travo-cr/travo-prepare.git" }

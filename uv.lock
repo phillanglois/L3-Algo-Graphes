@@ -766,6 +766,7 @@ source = { editable = "." }
 dependencies = [
     { name = "nbformat" },
     { name = "pip" },
+    { name = "travo-prepare" },
 ]
 
 [package.dev-dependencies]
@@ -808,6 +809,7 @@ format = [
 requires-dist = [
     { name = "nbformat", specifier = ">=5.11.1" },
     { name = "pip", specifier = ">=25.2" },
+    { name = "travo-prepare", git = "https://gitlab.com/travo-cr/travo-prepare.git" },
 ]
 
 [package.metadata.requires-dev]
@@ -2708,6 +2710,14 @@ jupyter = [
     { name = "nbgrader" },
     { name = "numpy" },
     { name = "pandas" },
+]
+
+[[package]]
+name = "travo-prepare"
+version = "0.1.0"
+source = { git = "https://gitlab.com/travo-cr/travo-prepare.git#5c185ade74975b1d0decb75fec106b48a7117e9d" }
+dependencies = [
+    { name = "jupytext" },
 ]
 
 [[package]]

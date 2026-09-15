@@ -127,12 +127,11 @@ mercredi 14h-17h
 ### Graphes: structures de données, terminologie, plus courts chemins
 
 - 2026-09-09
-  2026-09-16 (+ test Python) 
+  2026-09-16 (+ test Python)
 
 +++
 
 ### Arbres couvrants
-
 
 +++
 
