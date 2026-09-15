@@ -26,16 +26,19 @@ rise:
   width: 90%
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
+# Algorithmique des graphes
 
-# Algorithmique avancée
+
+Ce dépôt à destination des L3 Informatique et Mathématiques de l'UPVD reprend le cours 
+
+**Algorithmique avancée** du 
 
 M1 Informatique pour la Science des Données, Université Paris-Saclay, Faculté d'Orsay
 
 [Page web](http://nicolas.thiery.name/Enseignement/M1-ISD-AlgorithmiqueAvancee/),
 [ENT eCampus](https://ecampus.paris-saclay.fr/course/view.php?name=UPSAY_2025_940_UE_O4INA12)
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 «L’objectif de ce cours est de fournir des outils et techniques
 algorithmiques de pointe aux apprentis. Étude de l’algorithmique sur
@@ -45,15 +48,19 @@ Présentation de la notion de flots et des algorithmes de calcul de flot
 maximal. Enfin, les thèmes des algorithmes online et approchés seront
 abordés.»
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
-## Enseignants
+## Enseignants 
 
 - [Florent Hivert](https://www.lri.fr/~hivert/) (pas cette année)
 - [Viviane Pons](https://www.lri.fr/~pons/en/) (pas cette année)
 - [Nicolas M. Thiéry](http://Nicolas.Thiery.name)
 
-+++ {"slideshow": {"slide_type": "slide"}}
+### Enseignant pour l'UPVD
+
+- [Philippe Langlois](http://perso.univ-perp.fr/langlois)
+
++++
 
 ## Vue d'ensemble
 
@@ -63,11 +70,11 @@ Les notions du cours seront abordées par la pratique, tout d'abord par
 l'implantation de structures de données de graphes, puis leur
 utilisation pour résoudre quatre problèmes.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 ### Structures de données pour les graphes
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 ### 
 Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?
@@ -76,7 +83,7 @@ Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?
 :width: 50%
 :::
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 ### Problème 2: [Rush Hour](http://www.thinkfun.com/products/rush-hour/)
 
@@ -87,7 +94,7 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 :alt: Un visuel du jeu de plateau RushHour
 :::
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 ### Problème 3: Faire passer le maximum de courant
 
@@ -95,7 +102,7 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 :width: 50%
 :::
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 ### Problème 4: Fabriquer et résoudre des labyrinthes
 
@@ -105,44 +112,41 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 
 </center>
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Planning
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
-7 séances de 3h: Cours + TD + TP intégré
+12 séances de 3h: Cours ou cours + TD + TP intégré
 
-+++ {"slideshow": {"slide_type": "fragment"}}
+mercredi 14h-17h
+
++++
 
 ### Graphes: structures de données, terminologie, plus courts chemins
-% (Nicolas)
 
-- 2026-03-19 jeu. 09:00-12:15 B210
-- 2026-03-24 mar. 09:00-12:15 B211
+- 2026-09-09
+  2026-09-16 (+ test Python) 
 
-
-
-+++ {"slideshow": {"slide_type": "fragment"}}
-
-### Réseaux et flots
-% (Viviane)
-
-- 2026-03-26 jeu. 13:30-16:45 B210
-- 2026-03-31 mar. 08:00-11:15 B211
-- 2026-04-02 jeu. 08:00-11:15 B210
-
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 ### Arbres couvrants
-% (Florent)
 
-- 2026-05-07 jeu. 08:00-10:15 B210
-- 2026-05-11 lun. 09:00-11:15 B210
 
-### Examen
++++
 
-- 2026-05-22 jeu. 13:30-16:45
+### Parcours et plus court chemin
+
++++
+
+### Réseaux et flots
+
++++
+
+### CC et CT 
+
+Semaine des examens
 
 <!--
 Tri topologique, ordonnancement simple (UET, 1 ou infinté processeurs)
@@ -154,23 +158,21 @@ Réseaux: Dijkstra, flots, Ford-Fulkerson, ...
 Article de Mathieu Gay Paquet
 !-->
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Modalités d'évaluation
 
-L'évaluation se fera sur vos TPs, évalués à l'oral (CC), ainsi que sur un examen (ET1 / ET2)
+L'évaluation se fera sur vos TPs, évalués à l'oral (CC), ainsi que sur un examen (CT)
 
-Session 1 : 1/3 CC + 2/3 ET1
+Note UE : 1/2 CC + 1/2 CT
 
-Session 2 : 1/3 CC + 2/3 ET2
-
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 ### Annales
 
-- [Examen 2020-2021](../2020-2021/exam.pdf)
+Désolé, je n'en n'ai pas encore.
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Du bon usage des aides
 
@@ -184,7 +186,7 @@ ligne, collègues, copains, famille, robots conversationnels, etc.
 
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 :::{admonition} Nos conseils
 :class: tip
@@ -209,7 +211,7 @@ ligne, collègues, copains, famille, robots conversationnels, etc.
 
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 :::{admonition} Évaluation des TPs
 :class: hint
@@ -227,28 +229,25 @@ Motivation:
 
 :::
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## Environnement de travail
 
 - Langage de programmation: Python 3
 - Bibliothèques: networkx + matplotlib + ...
 - Environnement interactif: [Jupyter](https://jupyter.org)
-- Environnement virtuel: myDocker (optionnel)
-- Forge logicielle: GitLab
-- Robot conversationnel: basé sur LLM llama; souverain et loyal
-  (sur myDocker; optionnel)
+- Forge logicielle: GitHub
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 Dans cette section, nous expliquons:
 - Comment accéder aux logiciels requis
 - Comment télécharger et déposer vos devoirs
 
 Les instructions font l'hypothèse que vous travaillerez sur ce cours dans votre
-répertoire `~/M1-ISD/AlgorithmiqueAvancee`. Vous pouvez choisir un autre nom.
+répertoire `~/L3-AlgoGraphes`. Vous pouvez choisir un autre nom.
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++
 
 ### Accéder aux logiciels requis
 
@@ -256,7 +255,7 @@ Ce cours utilise Python, Jupyter et quelques bibliothèques classiques (voir le
 fichier [pyproject.toml](pyproject.toml), ainsi que quelques paquets Python plus ou
 moins maison.
 
-:::{admonition} Utilisation des logiciels en ligne (recommandé)
+:::{admonition} Utilisation des logiciels en ligne (pas disponible à l'UPVD)
 
 L'université Paris-Saclay mets à votre disposition un service sur lequel sont installés
 tous les logiciels requis. Vous pouvez vous identifier avec vos identifiants usuels de
@@ -266,7 +265,7 @@ l'université (Adonis).
 
 :::
 
-::::{admonition} Installation en local de l'environnement de travail (optionnel)
+::::{admonition} Installation en local de l'environnement de travail
 :class: dropdown
 
 Alternativement, vous pouvez installer les logiciels sur votre machine et travailler en
@@ -312,9 +311,9 @@ La liste des logiciels pourra être mise à jour en en cours de semestre. Dans c
 
 ::::
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
-### Télécharger et déposer les devoirs
+### TODO UPVD  Télécharger et déposer les devoirs
 
 Le matériel pédagogique de ce cours est réparti sous la forme de devoirs que vous
 téléchargerez depuis le tableau de bord. Par exemple, lors de la première séance, vous
@@ -338,16 +337,18 @@ elle existe déjà (push)
 
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
-#### Consultation des résultats des tests automatiques
+#### 
+
+Consultation des résultats des tests automatiques
 
 Vous pouvez consulter les résultats des tests automatiques en navigant sur votre dépôt
 depuis le tableau de bord.  Quelques minutes après avoir déposé, un badge apparaîtra
 avec votre score. Cliquez dessus et suivez les liens pour consulter le résultat de la
 correction automatique.
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++
 
 #### Travail en binôme
 
