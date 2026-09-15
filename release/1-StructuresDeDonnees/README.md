@@ -23,8 +23,8 @@ Les TPs suivants s'appuieront sur ce travail, tant d'un point de vue pratique
 (utilisation des structures de données implantées) que théorique (évaluation de la
 complexité des opérations à partir de celle des opérations élémentaires).
 
-0. [Prise en main de l'environnement de travail](00-PriseEnMain.md)
-1. [Introduction aux graphes et leurs structures de données](01-Introduction.md)
-2. [Listes en compréhensions](02-Comprehensions.md)
-3. [Implantation](03-Implantation.md)
-4. [Rapport](Rapport.md)
+0. [Prise en main de l'environnement de travail](00-PriseEnMain.ipynb)
+1. [Introduction aux graphes et leurs structures de données](01-Introduction.ipynb)
+2. [Listes en compréhensions](02-Comprehensions.ipynb)
+3. [Implantation](03-Implantation.ipynb)
+4. [Rapport](Rapport.ipynb)
