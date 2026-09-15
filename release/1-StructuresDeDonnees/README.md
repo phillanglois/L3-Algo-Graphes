@@ -1,17 +1,3 @@
----
-jupytext:
-  cell_metadata_filter: all,-autoscroll,-collapsed,-scrolled,-trusted,-ExecuteTime,-jp-MarkdownHeadingCollapsed
-  notebook_metadata_filter: kernelspec,jupytext,exports,math,rise,semantic,-jupytext.text_representation.jupytext_version
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
----
-
 # Thème 1: Structures de données
 
 L'objectif de cette première séance est de se familiariser par la pratique avec les
