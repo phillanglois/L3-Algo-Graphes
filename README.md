@@ -1,20 +1,38 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: pandoc
+      format_version: 3.1.11
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+  nbformat: 4
+  nbformat_minor: 5
+---
+
+::: {#0b832a15-b79a-4809-bfe9-33c8574861aa .cell .markdown}
 # Algorithmique des graphes
 
+Ce dépôt à destination des L3 Informatique et Mathématiques de l'UPVD reprend le cours
 
-Ce dépôt à destination des L3 Informatique et Mathématiques de l'UPVD reprend le cours 
-
-**Algorithmique avancée** du 
+**Algorithmique avancée** du
 
 M1 Informatique pour la Science des Données, Université Paris-Saclay, Faculté d'Orsay
 
 [Page web](http://nicolas.thiery.name/Enseignement/M1-ISD-AlgorithmiqueAvancee/),
 [ENT eCampus](https://ecampus.paris-saclay.fr/course/view.php?name=UPSAY_2025_940_UE_O4INA12)
 
+-   Les passages modifiés par rapport à l\'original sont précédés du tag #UPVD.
+-   Certains passages spécifiques à l\'[organisation parisienne](http://nicolas.thiery.name/Enseignement/M1-ISD-AlgorithmiqueAvancee) on été supprimés.
+
 +++
 
-«L’objectif de ce cours est de fournir des outils et techniques
-algorithmiques de pointe aux apprentis. Étude de l’algorithmique sur
-les graphes (plus courts chemins, tri topologique, …), les techniques de
+«L'objectif de ce cours est de fournir des outils et techniques
+algorithmiques de pointe aux apprentis. Étude de l'algorithmique sur
+les graphes (plus courts chemins, tri topologique, ...), les techniques de
 mémorisation, de programmation dynamique et de backtracking.
 Présentation de la notion de flots et des algorithmes de calcul de flot
 maximal. Enfin, les thèmes des algorithmes online et approchés seront
@@ -22,15 +40,15 @@ abordés.»
 
 +++
 
-## Enseignants 
+## Enseignants à l\'origine de ces supports
 
-- [Florent Hivert](https://www.lri.fr/~hivert/) (pas cette année)
-- [Viviane Pons](https://www.lri.fr/~pons/en/) (pas cette année)
-- [Nicolas M. Thiéry](http://Nicolas.Thiery.name)
+-   [Florent Hivert](https://www.lri.fr/~hivert/) (pas cette année)
+-   [Viviane Pons](https://www.lri.fr/~pons/en/) (pas cette année)
+-   [Nicolas M. Thiéry](http://Nicolas.Thiery.name)
 
-### Enseignant pour l'UPVD
+### #UPVD Enseignant pour cette expérimentation à l'UPVD
 
-- [Philippe Langlois](http://perso.univ-perp.fr/langlois)
+-   [Philippe Langlois](http://perso.univ-perp.fr/langlois)
 
 +++
 
@@ -49,6 +67,7 @@ utilisation pour résoudre quatre problèmes.
 +++
 
 ### 
+
 Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?
 
 :::{figure} media/metro-paris.gif
@@ -78,28 +97,29 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 
 ### Problème 4: Fabriquer et résoudre des labyrinthes
 
+```{=html}
 <center>
 
 <img src="media/labyrinthe.png" width="50%">
 
 </center>
-
+```
 +++
 
-## Planning
+## #UPVD Planning
 
 +++
 
 12 séances de 3h: Cours ou cours + TD + TP intégré
 
-mercredi 14h-17h
+mercredi 14h-17h, salle banalisée (1h30) puis salle info (1h30)
 
 +++
 
 ### Graphes: structures de données, terminologie, plus courts chemins
 
-- 2026-09-09
-  2026-09-16 (+ test Python)
+-   2026-09-09
+    2026-09-16 (+ test Python)
 
 +++
 
@@ -115,10 +135,11 @@ mercredi 14h-17h
 
 +++
 
-### CC et CT 
+### CC et CT
 
 Semaine des examens
 
+```{=html}
 <!--
 Tri topologique, ordonnancement simple (UET, 1 ou infinté processeurs)
 
@@ -128,10 +149,10 @@ Réseaux: Dijkstra, flots, Ford-Fulkerson, ...
 
 Article de Mathieu Gay Paquet
 !-->
-
+```
 +++
 
-## Modalités d'évaluation
+## #UPVD Modalités d'évaluation
 
 L'évaluation se fera sur vos TPs, évalués à l'oral (CC), ainsi que sur un examen (CT)
 
@@ -147,38 +168,34 @@ Désolé, je n'en n'ai pas encore.
 
 ## Du bon usage des aides
 
-:::{attention} 
-
 Vous avez à disposition de multiples aides: enseignant, solutions en
 ligne, collègues, copains, famille, robots conversationnels, etc.
 
 **Vous êtes responsables de votre progression, à vous de les utiliser
 à bon escient.**
 
-:::
-
 +++
 
 :::{admonition} Nos conseils
 :class: tip
 
-- Les exercices de ce cours sont à réaliser par vous-même pour qu'ils
-  soient utiles à votre progression. Copier ou simplement adapter une
-  solution existante ne vous apportera pas grand chose.
-- Si, après un temps de réflexion personnelle approfondie, vous ne
-  voyez pas comment avancer, alors n'hésitez pas à demander **des
-  indications** à vos aides.  
-  Si vous vous adressez à un robot conversationnel, soyez précis dans
-  votre invite (prompt): «Vous êtes un enseignant bienveillant d'un
-  cours de master d'algorithmique de graphes. Je dois résoudre
-  l'exercice suivant: ... J'ai essayé ... Sans me donner la solution,
-  pourriez vous me donner une indication sur comment avancer à partir
-  de là?»
-- Vous pouvez aussi utiliser vos aides pour discuter vos solutions aux
-  exercices.
-- Privilégiez les conversations avec des humains; elles sont plus
-  fécondes qu'avec un robot.  
-  **Vous êtes aussi responsable de votre impact environnemental**
+-   Les exercices de ce cours sont à réaliser par vous-même pour qu'ils
+    soient utiles à votre progression. Copier ou simplement adapter une
+    solution existante ne vous apportera pas grand chose.
+-   Si, après un temps de réflexion personnelle approfondie, vous ne
+    voyez pas comment avancer, alors n'hésitez pas à demander **des
+    indications** à vos aides.\
+    Si vous vous adressez à un robot conversationnel, soyez précis dans
+    votre invite (prompt): «Vous êtes un enseignant bienveillant d'un
+    cours de master d'algorithmique de graphes. Je dois résoudre
+    l'exercice suivant: ... J'ai essayé ... Sans me donner la solution,
+    pourriez vous me donner une indication sur comment avancer à partir
+    de là?»
+-   Vous pouvez aussi utiliser vos aides pour discuter vos solutions aux
+    exercices.
+-   Privilégiez les conversations avec des humains; elles sont plus
+    fécondes qu'avec un robot.\
+    **Vous êtes aussi responsable de votre impact environnemental**
 
 :::
 
@@ -191,12 +208,13 @@ Vous ne serez pas évalués sur vos rendus de TP, mais lors de deux ou
 trois mini-oraux portant sur le thème des TPs.
 
 Motivation:
-- Vous inciter à **comprendre** les TPs plus qu'à les **remplir**.
-- Consacrer mon temps de correction des TPs à des dialogues individuel
-  féconds, plutôt qu'à faire le flic et compter des points derrière
-  mon ordi.
-- Vous faire remémorer vos TPs après la fin de ceux-ci, pour aider à
-  ancrer les apprentissages sur le plus long terme.
+
+-   Vous inciter à **comprendre** les TPs plus qu'à les **remplir**.
+-   Consacrer mon temps de correction des TPs à des dialogues individuel
+    féconds, plutôt qu'à faire le flic et compter des points derrière
+    mon ordi.
+-   Vous faire remémorer vos TPs après la fin de ceux-ci, pour aider à
+    ancrer les apprentissages sur le plus long terme.
 
 :::
 
@@ -204,16 +222,17 @@ Motivation:
 
 ## Environnement de travail
 
-- Langage de programmation: Python 3
-- Bibliothèques: networkx + matplotlib + ...
-- Environnement interactif: [Jupyter](https://jupyter.org)
-- Forge logicielle: GitHub
+-   Langage de programmation: Python 3
+-   Bibliothèques: networkx + matplotlib + ...
+-   Environnement interactif: [Jupyter](https://jupyter.org)
+-   Forge logicielle: GitHub
 
 +++
 
 Dans cette section, nous expliquons:
-- Comment accéder aux logiciels requis
-- Comment télécharger et déposer vos devoirs
+
+-   Comment accéder aux logiciels requis
+-   Comment télécharger et déposer vos devoirs
 
 Les instructions font l'hypothèse que vous travaillerez sur ce cours dans votre
 répertoire `~/L3-AlgoGraphes`. Vous pouvez choisir un autre nom.
@@ -226,65 +245,62 @@ Ce cours utilise Python, Jupyter et quelques bibliothèques classiques (voir le
 fichier [pyproject.toml](pyproject.toml), ainsi que quelques paquets Python plus ou
 moins maison.
 
-:::{admonition} Utilisation des logiciels en ligne (pas disponible à l'UPVD)
+::::{admonition} #UPVD Installation en local de l'environnement de travail
 
-L'université Paris-Saclay mets à votre disposition un service sur lequel sont installés
-tous les logiciels requis. Vous pouvez vous identifier avec vos identifiants usuels de
-l'université (Adonis).
-
-1. Ouvrez le <a href="https://mydocker.universite-paris-saclay.fr/shell/join/ObaNNeSqPTtSjEGJLekO/user-redirect/git-pull?repo=https%3A%2F%2Fgitlab.dsi.universite-paris-saclay.fr%2FM1InfoISDAlgorithmiqueAvancee%2FComputerLab%2F&targetPath=M1-ISD%2FAlgorithmiqueAvancee&urlpath=lab%2Ftree%2FM1-ISD%2FAlgorithmiqueAvancee%2Ftableau_de_bord.md%3Freset" target="_blank">tableau de bord du cours</a>
-
-:::
-
-::::{admonition} Installation en local de l'environnement de travail
-:class: dropdown
-
-Alternativement, vous pouvez installer les logiciels sur votre machine et travailler en
+Vous devez installer les logiciels sur votre machine et travailler en
 local.
 
-::::{admonition} Instructions d'installation avec `uv`
-:class: dropdown tip
+::::{admonition} #UPVD Instructions d'installation avec `uv`
 
-1. Si vous ne l'avez pas déjà fait, installez le gestionnaire d'environnements
-   [uv](https://docs.astral.sh/uv/getting-started/installation/).
+1.  Si vous ne l'avez pas déjà fait, installez le gestionnaire d'environnements
+    [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 2.  Si vous ne l'avez pas déjà fait, téléchargez la «salle de TP virtuelle» :
 
-    ```
-    git clone https://gitlab.dsi.universite-paris-saclay.fr/M1InfoISDAlgorithmiqueAvancee/ComputerLab.git ~/M1-ISD/AlgorithmiqueAvancee
-    ```
+        git clone https://github.com/phillanglois/L3-Algo-Graphes.git 
 
-3. Allez dans le dossier contenant le matériel pédagogique et lancez JupyterLab. Les
-   logiciels requis seront automatiquement installés dans ce dossier.
+3.  Allez dans le dossier contenant le matériel pédagogique et lancez JupyterLab. Les
+    logiciels requis seront automatiquement installés dans ce dossier.
 
-   ```
-   cd ~/M1-ISD/AlgorithmiqueAvancee
-   uv run jupyter lab tableau_de_bord.md
-   ```
+        cd ~/L3-Algo-Graphes
+        uv run jupyter lab
+
+    \% uv run jupyter lab tableau_de_bord.md
 
 La liste des logiciels pourra être mise à jour en en cours de semestre. Dans ce cas:
 
-    cd ~/M1-ISD/AlgorithmiqueAvancee
+    cd ~/L3-Algo-Graphes
     git pull
     uv sync
 
 :::
 
-% :::{admonition} Avec Docker
-%  
+:::{admonition} En savoir un peu plus
+:class: dropdown tip
+
+Ce qui suit permet de mieux appréhender l\'architecture logicielle de l\'environnement mis en place par les collègues d\'Orsay.
+Il permettra aux curieux de comprendre les évolutions entre l\'environnement classique jupyter utilisé en L1 et celui-ci.
+
+-   [uv](https://docs.astral.sh/uv/) le gestionnaire de paquets python ; les fichiers de la configuration de l\'environnement utilisé sont `pyproject.toml` (lisible et utile) et `uv.lock` (moins lisible)
+-   [jupytext](https://jupytext.org) \"remplace\" les fichiers .ipynb par leurs équivalents en .py ou .md exécutables sous jupyter ; les fichiers de configurations sont dans `/install_files`
+
+:::
+
+\% :::{admonition} Avec Docker
+%\
 % Une image docker du cours est fournie dans le
 % [Container Registry](https://gitlab.dsi.universite-paris-saclay.fr/M1InfoISDAlgorithmiqueAvancee/ComputerLab/container_registry)
 % du projet Gitlab du cours. Voici son identifiant:
-%  
-%     gitlab.dsi.universite-paris-saclay.fr:5005/m1infoisdalgorithmiqueavancee/computerlab/image:latest
-%  
+%\
+% gitlab.dsi.universite-paris-saclay.fr:5005/m1infoisdalgorithmiqueavancee/computerlab/image:latest
+%\
 % :::
 
 ::::
 
 +++
 
-### TODO UPVD  Télécharger et déposer les devoirs
+### TODO UPVD Télécharger et déposer les devoirs
 
 Le matériel pédagogique de ce cours est réparti sous la forme de devoirs que vous
 téléchargerez depuis le tableau de bord. Par exemple, lors de la première séance, vous
@@ -312,10 +328,10 @@ elle existe déjà (push)
 
 #### 
 
-Consultation des résultats des tests automatiques
+TODO Consultation des résultats des tests automatiques
 
 Vous pouvez consulter les résultats des tests automatiques en navigant sur votre dépôt
-depuis le tableau de bord.  Quelques minutes après avoir déposé, un badge apparaîtra
+depuis le tableau de bord. Quelques minutes après avoir déposé, un badge apparaîtra
 avec votre score. Cliquez dessus et suivez les liens pour consulter le résultat de la
 correction automatique.
 
@@ -323,8 +339,9 @@ correction automatique.
 
 #### Travail en binôme
 
-Les TP seront à effectuer en binôme. Vous trouverez sur 
+Les TP seront à effectuer en binôme. Vous trouverez sur
 [cette page web](https://nicolas.thiery.name/Enseignement/Info111/collaboration.html)
 des suggestions sur comment travailler en binôme, et notamment
 configurer vos dépôts sur GitLab pour faciliter la collaboration et la
 correction.
+:::
