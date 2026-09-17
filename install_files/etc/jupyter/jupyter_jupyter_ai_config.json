@@ -1,0 +1,5 @@
+{
+  "AiExtension": {
+    "default_language_model": "aristote-provider:casperhansen/llama-3-70b-instruct-awq"
+  }
+}

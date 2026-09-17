@@ -1,0 +1,26 @@
+{
+    "@jupyterlab/docmanager-extension:plugin":
+    {
+	"defaultViewers":
+	{
+	    "markdown": "Jupytext Notebook",
+	    "myst": "Jupytext Notebook"
+	}
+    },
+    "@jupyterlab/translation-extension:plugin":
+    {
+	"locale": "fr_FR"
+    },
+    "@jupyter/nbgrader:formgrader":
+    {
+	"local_config": true
+    },
+    "learning-traces-extension:plugin":
+    {
+	"local": false,
+	"learningtrace": ".lrs.json",
+	"learningpath": "/L3-Algo-Graphes",
+	"trackedtags": "nbgrader.grade_id, nbgrader.points",
+	"learningtag": "nbgrader.grade"
+    }
+}
