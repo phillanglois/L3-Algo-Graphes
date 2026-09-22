@@ -82,3 +82,6 @@ scripts_are_modules = "True"
 
 [tool.uv.sources]
 travo-prepare = { git = "https://gitlab.com/travo-cr/travo-prepare.git" }
+
+[tool.jupytext]
+formats = "ipynb,md:myst"

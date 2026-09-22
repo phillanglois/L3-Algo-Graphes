@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Introduction aux graphes et leurs structures de données &#8212; Algorithmique des graphes</title>
+    <title>3. Introduction aux graphes et leurs structures de données &#8212; Algorithmique des graphes</title>
   
   
   
@@ -66,8 +66,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Listes en compréhension" href="02-Comprehensions.html" />
-    <link rel="prev" title="1. Prise en main de l’environnement de travail" href="00-PriseEnMain.html" />
+    <link rel="next" title="4. Listes en compréhension" href="02-Comprehensions.html" />
+    <link rel="prev" title="2. Prise en main de l’environnement de travail" href="00-PriseEnMain.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -217,17 +217,18 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Problème 4: Fabriquer et résoudre des labyrinthes
+                    Environnement de travail
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1-StructuresDeDonnees</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="00-PriseEnMain.html">1. Prise en main de l’environnement de travail</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Introduction aux graphes et leurs structures de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Thème 1: Structures de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-PriseEnMain.html">2. Prise en main de l’environnement de travail</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Introduction aux graphes et leurs structures de données</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">3. Listes en compréhension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-Implantation.html">4. Implantation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">4. Listes en compréhension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Implantation.html">5. Implantation</a></li>
 </ul>
 
     </div>
@@ -419,20 +420,20 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction aux graphes et leurs structures de données</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">2.1. Graphes: quelques définitions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">2.2. Graphes: variantes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">2.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Introduction aux graphes et leurs structures de données</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">3.1. Graphes: quelques définitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">3.2. Graphes: variantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">3.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">Liste d’arêtes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">Rappel: dictionnaires Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">Dictionnaire des voisins</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">Dictionnaire d’arêtes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">2.4. Matrice d’adjacence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">3.4. Matrice d’adjacence</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2. Conclusion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3. Conclusion</a></li>
 </ul>
 
             </nav>
@@ -453,9 +454,9 @@
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction-aux-graphes-et-leurs-structures-de-donnees">
-<h1><span class="section-number">2. </span>Introduction aux graphes et leurs structures de données<a class="headerlink" href="#introduction-aux-graphes-et-leurs-structures-de-donnees" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Introduction aux graphes et leurs structures de données<a class="headerlink" href="#introduction-aux-graphes-et-leurs-structures-de-donnees" title="Link to this heading">#</a></h1>
 <section id="graphes-quelques-definitions">
-<h2><span class="section-number">2.1. </span>Graphes: quelques définitions<a class="headerlink" href="#graphes-quelques-definitions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Graphes: quelques définitions<a class="headerlink" href="#graphes-quelques-definitions" title="Link to this heading">#</a></h2>
 <p>Qu’y a t’il de commun entre tous nos problèmes?</p>
 <!--TODO: figure!--><p>Dans chacun d’entre eux, la résolution se ramènera à étudier comment certains objets sont
 reliés entre eux. Autrement dit, le problème va pouvoir être <strong>modélisé à l’aide d’un
@@ -493,7 +494,7 @@ paires <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> d’él
 </div>
 </section>
 <section id="graphes-variantes">
-<h2><span class="section-number">2.2. </span>Graphes: variantes<a class="headerlink" href="#graphes-variantes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Graphes: variantes<a class="headerlink" href="#graphes-variantes" title="Link to this heading">#</a></h2>
 <p>Le plus souvent, cette information de base est enrichie d’informations supplémentaires:
 étiquettes sur les sommets, valuations sur les arêtes, orientation des arêtes, …</p>
 <p>On remplace la paire <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> par un couple <span class="math notranslate nohighlight">\((v_1,v_2)\)</span> :</p>
@@ -506,7 +507,7 @@ paires <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> d’él
 </ul>
 </section>
 <section id="quelques-structures-de-donnees-pour-les-graphes">
-<h2><span class="section-number">2.3. </span>Quelques structures de données pour les graphes<a class="headerlink" href="#quelques-structures-de-donnees-pour-les-graphes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Quelques structures de données pour les graphes<a class="headerlink" href="#quelques-structures-de-donnees-pour-les-graphes" title="Link to this heading">#</a></h2>
 <p>Pour étudier un graphe à l’aide d’un ordinateur, il va falloir le représenter,
 c’est-à-dire choisir une structure de données. Comme le champ d’application des graphes
 et large, il y a beaucoup d’algorithmes différents, avec des besoins différents en terme
@@ -683,7 +684,7 @@ lieu d’un dictionnaire :</p>
 </section>
 </section>
 <section id="matrice-d-adjacence">
-<h2><span class="section-number">2.4. </span>Matrice d’adjacence<a class="headerlink" href="#matrice-d-adjacence" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Matrice d’adjacence<a class="headerlink" href="#matrice-d-adjacence" title="Link to this heading">#</a></h2>
 <p>La <em><strong>matrice d’adjacence</strong></em> d’un graphe est un tableau (ou matrice) à deux dimensions
 <code class="docutils literal notranslate"><span class="pre">M</span></code> tel que <code class="docutils literal notranslate"><span class="pre">M[v1,v2]</span></code> est la capacité <code class="docutils literal notranslate"><span class="pre">c</span></code> de l’arête reliant <span class="math notranslate nohighlight">\(v_1\)</span> à <span class="math notranslate nohighlight">\(v_2\)</span> ou <span class="math notranslate nohighlight">\(0\)</span> s’il
 n’y a pas d’arête.</p>
@@ -728,7 +729,7 @@ n’y a pas d’arête.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conclusion">
-<h1><span class="section-number">2. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
 <p>Maintenant que vous avez manipulé des structures de données de graphes sur des exemples,
 vous pouvez passer à la feuille suivante.</p>
 </section>
@@ -769,7 +770,7 @@ vous pouvez passer à la feuille suivante.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Prise en main de l’environnement de travail</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Prise en main de l’environnement de travail</p>
       </div>
     </a>
     <a class="right-next"
@@ -777,7 +778,7 @@ vous pouvez passer à la feuille suivante.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Listes en compréhension</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Listes en compréhension</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -799,20 +800,20 @@ vous pouvez passer à la feuille suivante.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction aux graphes et leurs structures de données</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">2.1. Graphes: quelques définitions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">2.2. Graphes: variantes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">2.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Introduction aux graphes et leurs structures de données</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">3.1. Graphes: quelques définitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">3.2. Graphes: variantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">3.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">Liste d’arêtes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">Rappel: dictionnaires Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">Dictionnaire des voisins</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">Dictionnaire d’arêtes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">2.4. Matrice d’adjacence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">3.4. Matrice d’adjacence</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2. Conclusion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3. Conclusion</a></li>
 </ul>
 
   </nav></div>

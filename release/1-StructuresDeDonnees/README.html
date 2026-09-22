@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Implantation &#8212; Algorithmique des graphes</title>
+    <title>1. Thème 1: Structures de données &#8212; Algorithmique des graphes</title>
   
   
   
@@ -60,11 +60,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'release/1-StructuresDeDonnees/03-Implantation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'release/1-StructuresDeDonnees/README';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="4. Listes en compréhension" href="02-Comprehensions.html" />
+    <link rel="next" title="2. Prise en main de l’environnement de travail" href="00-PriseEnMain.html" />
+    <link rel="prev" title="Environnement de travail" href="../../README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -152,10 +153,6 @@
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -220,12 +217,12 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1-StructuresDeDonnees</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="README.html">1. Thème 1: Structures de données</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Thème 1: Structures de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="00-PriseEnMain.html">2. Prise en main de l’environnement de travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01-Introduction.html">3. Introduction aux graphes et leurs structures de données</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">4. Listes en compréhension</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Implantation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Implantation.html">5. Implantation</a></li>
 </ul>
 
     </div>
@@ -285,7 +282,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/phillanglois/L3-AlgoGraphes/main?urlpath=tree/release/1-StructuresDeDonnees/03-Implantation.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/phillanglois/L3-AlgoGraphes/main?urlpath=tree/release/1-StructuresDeDonnees/README.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +302,7 @@
 
 
 
-<a href="https://github.com/phillanglois/L3-AlgoGraphes/issues/new?title=Issue%20on%20page%20%2Frelease/1-StructuresDeDonnees/03-Implantation.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/phillanglois/L3-AlgoGraphes/issues/new?title=Issue%20on%20page%20%2Frelease/1-StructuresDeDonnees/README.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -331,7 +328,24 @@
       
       
       
-      <li><a href="../../_sources/release/1-StructuresDeDonnees/03-Implantation.ipynb" target="_blank"
+      <li><a href="../../_sources/release/1-StructuresDeDonnees/README.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/release/1-StructuresDeDonnees/README.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +355,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -394,9 +408,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -407,21 +419,11 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Implantation</h1>
+    <h1>Thème 1: Structures de données</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-python-sur-les-dictionnaires-et-comprehensions">5.1. Exemples Python sur les dictionnaires et compréhensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conversions">5.2. Conversions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-classe-graphe">5.3. Une classe graphe</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -431,86 +433,22 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UPVD</span> <span class="mi">2026</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="implantation">
-<h1><span class="section-number">5. </span>Implantation<a class="headerlink" href="#implantation" title="Link to this heading">#</a></h1>
-<section id="exemples-python-sur-les-dictionnaires-et-comprehensions">
-<h2><span class="section-number">5.1. </span>Exemples Python sur les dictionnaires et compréhensions<a class="headerlink" href="#exemples-python-sur-les-dictionnaires-et-comprehensions" title="Link to this heading">#</a></h2>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Analysez les exemples suivants:</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="p">[</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span> <span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">))}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="conversions">
-<h2><span class="section-number">5.2. </span>Conversions<a class="headerlink" href="#conversions" title="Link to this heading">#</a></h2>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Choisissez une des structures de données de graphes que l’on a vues (liste d’arêtes,
-dictionnaire des voisins, dictionnaire d’arêtes, matrice d’adjacence), ou une autre.</p>
-<p>Implantez ci-dessous des fonctions Python <code class="docutils literal notranslate"><span class="pre">from_matrix</span></code>, <code class="docutils literal notranslate"><span class="pre">from_edges</span></code>,
-<code class="docutils literal notranslate"><span class="pre">from_neighbor_dict</span></code>, <code class="docutils literal notranslate"><span class="pre">from_edge_dict</span></code>. Par exemple, la fonction <code class="docutils literal notranslate"><span class="pre">from_matrix</span></code> prendra un
-graphe représenté par une matrice d’adjacence et renverra le même graphe dans la
-structure de donnée que vous avez choisi.</p>
-<p>Testez systématiquement ces fonctions – avec des tests automatiques – sur les exemples
-de la fiche précédente.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ENTRER VOTRE CODE A LA PLACE DE CES 2 LIGNES</span>
-<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="une-classe-graphe">
-<h2><span class="section-number">5.3. </span>Une classe graphe<a class="headerlink" href="#une-classe-graphe" title="Link to this heading">#</a></h2>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Le fichier <a class="reference internal" href="#graph.py"><span class="xref myst">graph.py</span></a> contient un squelette de classe pour représenter des
-graphes. Votre mission est de compléter les méthodes non implantées avant la prochaine
-séance, en vous appuyant sur la documentation, les commentaires et les tests.</p>
-<p>Le <a class="reference internal" href="#Rapport.md"><span class="xref myst">rapport</span></a> contient des vérifications automatiques pour votre code.
-Utilisez le au fur et à mesure pour suivre votre avancement et complétez le.</p>
-</div>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="theme-1-structures-de-donnees">
+<h1><span class="section-number">1. </span>Thème 1: Structures de données<a class="headerlink" href="#theme-1-structures-de-donnees" title="Link to this heading">#</a></h1>
+<p>L’objectif de cette première séance est de se familiariser par la pratique avec les
+graphes et les structures de données possibles pour les représenter. Une attention toute
+particulière sera donnée à l’influence du choix de la structure de donnée sur la
+<strong>complexité algorithmique</strong> des opérations élémentaires sur les graphes.</p>
+<p>Les TPs suivants s’appuieront sur ce travail, tant d’un point de vue pratique
+(utilisation des structures de données implantées) que théorique (évaluation de la
+complexité des opérations à partir de celle des opérations élémentaires).</p>
+<ol class="arabic simple" start="0">
+<li><p><a class="reference internal" href="00-PriseEnMain.html"><span class="std std-doc">Prise en main de l’environnement de travail</span></a></p></li>
+<li><p><a class="reference internal" href="01-Introduction.html"><span class="std std-doc">Introduction aux graphes et leurs structures de données</span></a></p></li>
+<li><p><a class="reference internal" href="02-Comprehensions.html"><span class="std std-doc">Listes en compréhensions</span></a></p></li>
+<li><p><a class="reference internal" href="03-Implantation.html"><span class="std std-doc">Implantation</span></a></p></li>
+<li><p><span class="xref myst">Rapport</span></p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -544,13 +482,22 @@ Utilisez le au fur et à mesure pour suivre votre avancement et complétez le.</
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02-Comprehensions.html"
+       href="../../README.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Listes en compréhension</p>
+        <p class="prev-next-title">Environnement de travail</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="00-PriseEnMain.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Prise en main de l’environnement de travail</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -558,25 +505,6 @@ Utilisez le au fur et à mesure pour suivre votre avancement et complétez le.</
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-python-sur-les-dictionnaires-et-comprehensions">5.1. Exemples Python sur les dictionnaires et compréhensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conversions">5.2. Conversions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#une-classe-graphe">5.3. Une classe graphe</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
