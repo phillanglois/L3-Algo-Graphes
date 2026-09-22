@@ -74,6 +74,7 @@ Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?
 :width: 50%
 :::
 
+::: {#56aca199-da03-4780-8561-0e7e24739828 .cell .markdown}
 +++
 
 ### Problème 2: [Rush Hour](http://www.thinkfun.com/products/rush-hour/)
@@ -85,6 +86,7 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 :alt: Un visuel du jeu de plateau RushHour
 :::
 
+::: {#5025a5fa-6292-45a2-b60c-bd048d51939d .cell .markdown}
 +++
 
 ### Problème 3: Faire passer le maximum de courant
@@ -282,7 +284,7 @@ Ce qui suit permet de mieux appréhender l\'architecture logicielle de l\'enviro
 Il permettra aux curieux de comprendre les évolutions entre l\'environnement classique jupyter utilisé en L1 et celui-ci.
 
 -   [uv](https://docs.astral.sh/uv/) le gestionnaire de paquets python ; les fichiers de la configuration de l\'environnement utilisé sont `pyproject.toml` (lisible et utile) et `uv.lock` (moins lisible)
--   [jupytext](https://jupytext.org) \"remplace\" les fichiers .ipynb par leurs équivalents en .py ou .md exécutables sous jupyter ; les fichiers de configurations sont dans `/install_files`
+-   [jupytext](https://jupytext.org) \"remplace\" les fichiers .ipynb par leurs équivalents en .py ou .md exploitables et exécutables sous jupyter ; les fichiers de configurations sont dans `/install_files`
 
 :::
 
@@ -326,7 +328,7 @@ elle existe déjà (push)
 
 +++
 
-#### 
+####  {#section}
 
 TODO Consultation des résultats des tests automatiques
 
@@ -344,4 +346,6 @@ Les TP seront à effectuer en binôme. Vous trouverez sur
 des suggestions sur comment travailler en binôme, et notamment
 configurer vos dépôts sur GitLab pour faciliter la collaboration et la
 correction.
+:::
+:::
 :::
