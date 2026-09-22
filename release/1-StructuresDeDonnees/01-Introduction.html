@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Introduction aux graphes et leurs structures de données &#8212; Algorithmique des graphes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'release/1-StructuresDeDonnees/01-Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Listes en compréhension" href="02-Comprehensions.html" />
+    <link rel="prev" title="1. Prise en main de l’environnement de travail" href="00-PriseEnMain.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/graphe.png" class="logo__image only-light" alt="Algorithmique des graphes - Home"/>
+    <img src="../../_static/graphe.png" class="logo__image only-dark pst-js-only" alt="Algorithmique des graphes - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Problème 4: Fabriquer et résoudre des labyrinthes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1-StructuresDeDonnees</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00-PriseEnMain.html">1. Prise en main de l’environnement de travail</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Introduction aux graphes et leurs structures de données</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">3. Listes en compréhension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Implantation.html">4. Implantation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/phillanglois/L3-AlgoGraphes/main?urlpath=tree/release/1-StructuresDeDonnees/01-Introduction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/phillanglois/L3-AlgoGraphes/issues/new?title=Issue%20on%20page%20%2Frelease/1-StructuresDeDonnees/01-Introduction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/release/1-StructuresDeDonnees/01-Introduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction aux graphes et leurs structures de données</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction aux graphes et leurs structures de données</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">2.1. Graphes: quelques définitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">2.2. Graphes: variantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">2.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">Liste d’arêtes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">Rappel: dictionnaires Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">Dictionnaire des voisins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">Dictionnaire d’arêtes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">2.4. Matrice d’adjacence</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2. Conclusion</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UPVD</span> <span class="mi">2026</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-aux-graphes-et-leurs-structures-de-donnees">
+<h1><span class="section-number">2. </span>Introduction aux graphes et leurs structures de données<a class="headerlink" href="#introduction-aux-graphes-et-leurs-structures-de-donnees" title="Link to this heading">#</a></h1>
+<section id="graphes-quelques-definitions">
+<h2><span class="section-number">2.1. </span>Graphes: quelques définitions<a class="headerlink" href="#graphes-quelques-definitions" title="Link to this heading">#</a></h2>
+<p>Qu’y a t’il de commun entre tous nos problèmes?</p>
+<!--TODO: figure!--><p>Dans chacun d’entre eux, la résolution se ramènera à étudier comment certains objets sont
+reliés entre eux. Autrement dit, le problème va pouvoir être <strong>modélisé à l’aide d’un
+graphe</strong>.</p>
+<p>Informellement: un <em><strong>graphe</strong></em> est la donnée d’un ensemble de <em><strong>sommets</strong></em> reliés par
+des <em><strong>arêtes</strong></em>. Voilà un exemple avec cinq sommets. Les sommets 1 et 3 y sont reliés
+entre eux. Mais pas 1 et 4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">graph_networkx</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                         <span class="n">edges</span><span class="o">=</span><span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">])</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La définition formelle la plus simple est la suivante:</p>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Un <em><strong>graphe</strong></em> est une paire <span class="math notranslate nohighlight">\(G:=(V,A)\)</span> où <span class="math notranslate nohighlight">\(V\)</span> est un ensemble et <span class="math notranslate nohighlight">\(A\)</span> et un ensemble de
+paires <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> d’éléments de <span class="math notranslate nohighlight">\(V\)</span>.</p>
+</div>
+<p>Dans notre exemple, <span class="math notranslate nohighlight">\(G=(V,A)\)</span>, où <span class="math notranslate nohighlight">\(V = \{1,2,3,4,5\}\)</span> et
+<span class="math notranslate nohighlight">\(A = \{\{1,2\}, \{1,3\}, \{2,4\}, \{3,4\}, \{4,5\} \}\)</span>.</p>
+<div class="admonition-remarque admonition">
+<p class="admonition-title">Remarque</p>
+<p>Dans la définition donnée, une arête est un ensemble à deux éléments:</p>
+<ul class="simple">
+<li><p>le graphe n’est <em><strong>pas orienté</strong></em>: si <span class="math notranslate nohighlight">\(s\)</span> est relié à <span class="math notranslate nohighlight">\(t\)</span> alors <span class="math notranslate nohighlight">\(t\)</span> est relié à <span class="math notranslate nohighlight">\(s\)</span>;</p></li>
+<li><p>il n’y a pas de <em><strong>boucle</strong></em>, c’est à dire une arête reliant un sommet à lui-même;</p></li>
+<li><p>ni d’<em><strong>arête multiple</strong></em>, c’est-à-dire plusieurs arêtes reliant les mêmes sommets;</p></li>
+</ul>
+<p>On parle de <em><strong>graphe simple</strong></em>.</p>
+</div>
+</section>
+<section id="graphes-variantes">
+<h2><span class="section-number">2.2. </span>Graphes: variantes<a class="headerlink" href="#graphes-variantes" title="Link to this heading">#</a></h2>
+<p>Le plus souvent, cette information de base est enrichie d’informations supplémentaires:
+étiquettes sur les sommets, valuations sur les arêtes, orientation des arêtes, …</p>
+<p>On remplace la paire <span class="math notranslate nohighlight">\(\{v_1,v_2\}\)</span> par un couple <span class="math notranslate nohighlight">\((v_1,v_2)\)</span> :</p>
+<ul class="simple">
+<li><p>On a en plus: orientation, boucle…</p></li>
+</ul>
+<p>On ajoute un nombre à la paire <span class="math notranslate nohighlight">\((v_1, v_2, c)\)</span> :</p>
+<ul class="simple">
+<li><p>On a en plus: arête multiple, coût, capacité …</p></li>
+</ul>
+</section>
+<section id="quelques-structures-de-donnees-pour-les-graphes">
+<h2><span class="section-number">2.3. </span>Quelques structures de données pour les graphes<a class="headerlink" href="#quelques-structures-de-donnees-pour-les-graphes" title="Link to this heading">#</a></h2>
+<p>Pour étudier un graphe à l’aide d’un ordinateur, il va falloir le représenter,
+c’est-à-dire choisir une structure de données. Comme le champ d’application des graphes
+et large, il y a beaucoup d’algorithmes différents, avec des besoins différents en terme
+de performance des opérations élémentaires. Tel algorithme va demander d’avoir un accès
+très performant aux voisins d’un sommet; tel autre parcourir les arêtes, etc. De ce fait,
+il existe de nombreuses structures de données possibles que nous allons explorer
+maintenant.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>On s’intéressera dans cette séance aux <em><strong>graphes orientés</strong></em> où chaque arête aura une
+capacité <code class="docutils literal notranslate"><span class="pre">c</span></code> qui sera un nombre.</p>
+</div>
+<section id="liste-d-aretes">
+<h3>Liste d’arêtes<a class="headerlink" href="#liste-d-aretes" title="Link to this heading">#</a></h3>
+<p>Ici, on représentera un graphe par une liste de triplets <code class="docutils literal notranslate"><span class="pre">(v1,v2,c)</span></code>, chacun d’entre eux
+spécifiant qu’il y a une arête reliant <span class="math notranslate nohighlight">\(v_1\)</span> à <span class="math notranslate nohighlight">\(v_2\)</span> de capacité <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>Ci-dessous, nous donnons la structure de données <code class="docutils literal notranslate"><span class="pre">L0</span></code> d’un graphe <span class="math notranslate nohighlight">\(G_0\)</span> avec trois
+sommets, <span class="math notranslate nohighlight">\(0,1,2\)</span>, et deux arêtes; la première relie <span class="math notranslate nohighlight">\(0\)</span> à <span class="math notranslate nohighlight">\(1\)</span> avec une capacité de <span class="math notranslate nohighlight">\(10\)</span>
+et la deuxième relie <span class="math notranslate nohighlight">\(0\)</span> à <span class="math notranslate nohighlight">\(2\)</span> avec une capacité de <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voici la structure de donnée pour un autre graphe <span class="math notranslate nohighlight">\(G_1\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Dessinez sur papier les graphes <code class="docutils literal notranslate"><span class="pre">G_0</span></code> et <code class="docutils literal notranslate"><span class="pre">G_1</span></code>, en mettant sur chaque arête sa capacité.</p>
+</div>
+<p>Pour chaque structure de données de ce cours, un type (laxiste) est fourni. Ici, ce sera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeList</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ce type peut par exemple être utilisé pour typer statiquement du code ou pour faire des
+vérifications dynamiques:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typeguard</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_type</span>
+<span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeList</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rappel-dictionnaires-python">
+<h3>Rappel: dictionnaires Python<a class="headerlink" href="#rappel-dictionnaires-python" title="Link to this heading">#</a></h3>
+<p>Un <em>dictionnaire</em> en Python est une structure de donnée permettant d’associer à une
+valeur à une clé. Comme un dictionnnaire de français qui associe une définition à un mot,
+ou un annuaire qui associe un numéro de téléphone à une personne. Voici un dictionnaire
+qui associe la valeur <code class="docutils literal notranslate"><span class="pre">1</span></code> à la clé <code class="docutils literal notranslate"><span class="pre">&quot;bla&quot;</span></code>, la valeur <code class="docutils literal notranslate"><span class="pre">3</span></code> à la clé <code class="docutils literal notranslate"><span class="pre">&quot;ble&quot;</span></code> et la valeur
+<code class="docutils literal notranslate"><span class="pre">&quot;pi&quot;</span></code> à la clé <code class="docutils literal notranslate"><span class="pre">3.13</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bla"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"ble"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">:</span> <span class="s2">"pi"</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut accéder à une valeur à partir de sa clé avec l’opération suivante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On notera la similitude avec l’accès aux éléments d’un tableau. On peut voir un tableau
+de taille <code class="docutils literal notranslate"><span class="pre">l</span></code> comme un dictionnaire associant des valeurs à des clés entre <code class="docutils literal notranslate"><span class="pre">0</span></code> et <code class="docutils literal notranslate"><span class="pre">l-1</span></code></p>
+</section>
+<section id="dictionnaire-des-voisins">
+<h3>Dictionnaire des voisins<a class="headerlink" href="#dictionnaire-des-voisins" title="Link to this heading">#</a></h3>
+<p>Un sommet <span class="math notranslate nohighlight">\(v_2\)</span> est un voisin sortant d’un sommet <span class="math notranslate nohighlight">\(v_1\)</span> s’il y a une arête reliant <span class="math notranslate nohighlight">\(v_1\)</span>
+à <span class="math notranslate nohighlight">\(v_2\)</span>.</p>
+<p>On peut représenter un graphe à l’aide d’un <em><strong>dictionnaire des voisins</strong></em> qui à chaque
+sommet associe la liste de ses voisins. Comme on veut représenter des capacités, la
+valeur associée à la clé <code class="docutils literal notranslate"><span class="pre">v1</span></code> sera un liste de paires <code class="docutils literal notranslate"><span class="pre">(v2,c)</span></code> où <span class="math notranslate nohighlight">\(v_2\)</span> sera le voisin et
+<code class="docutils literal notranslate"><span class="pre">c</span></code> la capacité de l’arête reliant <span class="math notranslate nohighlight">\(v_1\)</span> à <span class="math notranslate nohighlight">\(v_2\)</span>.</p>
+<p>Voici le dictionnaire des voisins pour <span class="math notranslate nohighlight">\(G_0\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DV0</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Donnez le dictionnaire des voisins pour <span class="math notranslate nohighlight">\(G_1\)</span>, et stockez le dans la variable <code class="docutils literal notranslate"><span class="pre">DV1</span></code>:</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ENTRER VOTRE CODE A LA PLACE DE CES 2 LIGNES</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DV1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">NeighborDict</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">DV1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">for</span> <span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si les sommets du graphe sont étiquetés par <span class="math notranslate nohighlight">\(0,1,\ldots\)</span>, on peut utiliser une liste au
+lieu d’un dictionnaire :</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Avec un tableau (graphe etiquete par 0,1,...)</span>
+<span class="n">DV0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionnaire-d-aretes">
+<h3>Dictionnaire d’arêtes<a class="headerlink" href="#dictionnaire-d-aretes" title="Link to this heading">#</a></h3>
+<p>Utilisons maintenant un <em><strong>dictionnaire d’arêtes</strong></em> pour représenter <code class="docutils literal notranslate"><span class="pre">G_1</span></code> : il associera
+à chaque paire <code class="docutils literal notranslate"><span class="pre">(u1,v1)</span></code> reliés par une arête la capacité de cette arrête.</p>
+<p>Voici le dictionnaire pour <span class="math notranslate nohighlight">\(G_0\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DA0</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span> <span class="mi">4</span>
+      <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Donnez le dictionnaire d’arêtes pour <span class="math notranslate nohighlight">\(G_1\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ENTRER VOTRE CODE A LA PLACE DE CES 2 LIGNES</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DA1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeDict</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">DA1</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="matrice-d-adjacence">
+<h2><span class="section-number">2.4. </span>Matrice d’adjacence<a class="headerlink" href="#matrice-d-adjacence" title="Link to this heading">#</a></h2>
+<p>La <em><strong>matrice d’adjacence</strong></em> d’un graphe est un tableau (ou matrice) à deux dimensions
+<code class="docutils literal notranslate"><span class="pre">M</span></code> tel que <code class="docutils literal notranslate"><span class="pre">M[v1,v2]</span></code> est la capacité <code class="docutils literal notranslate"><span class="pre">c</span></code> de l’arête reliant <span class="math notranslate nohighlight">\(v_1\)</span> à <span class="math notranslate nohighlight">\(v_2\)</span> ou <span class="math notranslate nohighlight">\(0\)</span> s’il
+n’y a pas d’arête.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Donnez la matrice d’adjacence pour <span class="math notranslate nohighlight">\(G_1\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Indication</p>
+<ul class="simple">
+<li><p>Vous rajouterez un sommet <span class="math notranslate nohighlight">\(0\)</span> (pourquoi?).</p></li>
+<li><p>Rappel: Le graphe est orienté.</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ENTRER VOTRE CODE A LA PLACE DE CES 2 LIGNES</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">AdjacencyMatrix</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">6</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">M1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
+<h1><span class="section-number">2. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
+<p>Maintenant que vous avez manipulé des structures de données de graphes sur des exemples,
+vous pouvez passer à la feuille suivante.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./release/1-StructuresDeDonnees"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00-PriseEnMain.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Prise en main de l’environnement de travail</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02-Comprehensions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Listes en compréhension</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction aux graphes et leurs structures de données</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">2.1. Graphes: quelques définitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">2.2. Graphes: variantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">2.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">Liste d’arêtes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">Rappel: dictionnaires Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">Dictionnaire des voisins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">Dictionnaire d’arêtes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">2.4. Matrice d’adjacence</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2. Conclusion</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florent Hivert, Viviane Pons, Nicolas M. Thiéry, Ph. Langlois
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

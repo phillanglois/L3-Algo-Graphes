@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Problème 4: Fabriquer et résoudre des labyrinthes &#8212; Algorithmique des graphes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Prise en main de l’environnement de travail" href="release/1-StructuresDeDonnees/00-PriseEnMain.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/graphe.png" class="logo__image only-light" alt="Algorithmique des graphes - Home"/>
+    <img src="_static/graphe.png" class="logo__image only-dark pst-js-only" alt="Algorithmique des graphes - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Problème 4: Fabriquer et résoudre des labyrinthes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1-StructuresDeDonnees</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="release/1-StructuresDeDonnees/00-PriseEnMain.html">1. Prise en main de l’environnement de travail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release/1-StructuresDeDonnees/01-Introduction.html">2. Introduction aux graphes et leurs structures de données</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="release/1-StructuresDeDonnees/02-Comprehensions.html">3. Listes en compréhension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release/1-StructuresDeDonnees/03-Implantation.html">4. Implantation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/phillanglois/L3-AlgoGraphes/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Problème 4: Fabriquer et résoudre des labyrinthes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problème 4: Fabriquer et résoudre des labyrinthes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#upvd-planning">#UPVD Planning</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-structures-de-donnees-terminologie-plus-courts-chemins">Graphes: structures de données, terminologie, plus courts chemins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbres-couvrants">Arbres couvrants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcours-et-plus-court-chemin">Parcours et plus court chemin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseaux-et-flots">Réseaux et flots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-et-ct">CC et CT</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#upvd-modalites-d-evaluation">#UPVD Modalités d’évaluation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annales">Annales</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#du-bon-usage-des-aides">Du bon usage des aides</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#environnement-de-travail">Environnement de travail</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-aux-logiciels-requis">Accéder aux logiciels requis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-upvd-telecharger-et-deposer-les-devoirs">TODO UPVD Télécharger et déposer les devoirs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section">{#section}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-en-binome">Travail en binôme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="{#0b832a15-b79a-4809-bfe9-33c8574861aa docutils">
+<h1 class="rubric" id="algorithmique-des-graphes">Algorithmique des graphes</h1>
+<p>Ce dépôt à destination des L3 Informatique et Mathématiques de l’UPVD reprend le cours</p>
+<p><strong>Algorithmique avancée</strong> du</p>
+<p>M1 Informatique pour la Science des Données, Université Paris-Saclay, Faculté d’Orsay</p>
+<p><a class="reference external" href="http://nicolas.thiery.name/Enseignement/M1-ISD-AlgorithmiqueAvancee/">Page web</a>,
+<a class="reference external" href="https://ecampus.paris-saclay.fr/course/view.php?name=UPSAY_2025_940_UE_O4INA12">ENT eCampus</a></p>
+<ul class="simple">
+<li><p>Les passages modifiés par rapport à l’original sont précédés du tag #UPVD.</p></li>
+<li><p>Certains passages spécifiques à l’<a class="reference external" href="http://nicolas.thiery.name/Enseignement/M1-ISD-AlgorithmiqueAvancee">organisation parisienne</a> on été supprimés.</p></li>
+</ul>
+<p>«L’objectif de ce cours est de fournir des outils et techniques
+algorithmiques de pointe aux apprentis. Étude de l’algorithmique sur
+les graphes (plus courts chemins, tri topologique, …), les techniques de
+mémorisation, de programmation dynamique et de backtracking.
+Présentation de la notion de flots et des algorithmes de calcul de flot
+maximal. Enfin, les thèmes des algorithmes online et approchés seront
+abordés.»</p>
+<h2 class="rubric" id="enseignants-a-l-origine-de-ces-supports">Enseignants à l’origine de ces supports</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.lri.fr/~hivert/">Florent Hivert</a> (pas cette année)</p></li>
+<li><p><a class="reference external" href="https://www.lri.fr/~pons/en/">Viviane Pons</a> (pas cette année)</p></li>
+<li><p><a class="reference external" href="http://Nicolas.Thiery.name">Nicolas M. Thiéry</a></p></li>
+</ul>
+<h3 class="rubric" id="upvd-enseignant-pour-cette-experimentation-a-l-upvd">#UPVD Enseignant pour cette expérimentation à l’UPVD</h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://perso.univ-perp.fr/langlois">Philippe Langlois</a></p></li>
+</ul>
+<h2 class="rubric" id="vue-d-ensemble">Vue d’ensemble</h2>
+<p>Les notions du cours seront abordées par la pratique, tout d’abord par
+l’implantation de structures de données de graphes, puis leur
+utilisation pour résoudre quatre problèmes.</p>
+<h3 class="rubric" id="structures-de-donnees-pour-les-graphes">Structures de données pour les graphes</h3>
+<h3 class="rubric" id="id1"></h3>
+<p>Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/metro-paris.gif"><img alt="_images/metro-paris.gif" src="_images/metro-paris.gif" style="width: 50%;" />
+</a>
+</figure>
+</div>
+<div class="{#56aca199-da03-4780-8561-0e7e24739828 docutils">
+<h3 class="rubric" id="probleme-2-rush-hour">Problème 2: <a class="reference external" href="http://www.thinkfun.com/products/rush-hour/">Rush Hour</a></h3>
+<p>La voiture rouge est coincée dans un embouteillage; comment déplacer les véhicules pour la faire sortir?
+Ci-dessous le défi 1. Saurez-vous faire résoudre par l’ordinateur le défi 40 en un nombre minimum du coups?</p>
+<figure class="align-default">
+<img alt="Un visuel du jeu de plateau RushHour" src="_images/rush_hour.gif" />
+</figure>
+</div>
+<div class="{#5025a5fa-6292-45a2-b60c-bd048d51939d docutils">
+<h3 class="rubric" id="probleme-3-faire-passer-le-maximum-de-courant">Problème 3: Faire passer le maximum de courant</h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/reseau-electrique.png"><img alt="_images/reseau-electrique.png" src="_images/reseau-electrique.png" style="width: 50%;" />
+</a>
+</figure>
+</div>
+<section id="probleme-4-fabriquer-et-resoudre-des-labyrinthes">
+<h1>Problème 4: Fabriquer et résoudre des labyrinthes<a class="headerlink" href="#probleme-4-fabriquer-et-resoudre-des-labyrinthes" title="Link to this heading">#</a></h1>
+</section>
+<section id="upvd-planning">
+<h1>#UPVD Planning<a class="headerlink" href="#upvd-planning" title="Link to this heading">#</a></h1>
+<p>12 séances de 3h: Cours ou cours + TD + TP intégré</p>
+<p>mercredi 14h-17h, salle banalisée (1h30) puis salle info (1h30)</p>
+<section id="graphes-structures-de-donnees-terminologie-plus-courts-chemins">
+<h2>Graphes: structures de données, terminologie, plus courts chemins<a class="headerlink" href="#graphes-structures-de-donnees-terminologie-plus-courts-chemins" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>2026-09-09
+2026-09-16 (+ test Python)</p></li>
+</ul>
+</section>
+<section id="arbres-couvrants">
+<h2>Arbres couvrants<a class="headerlink" href="#arbres-couvrants" title="Link to this heading">#</a></h2>
+</section>
+<section id="parcours-et-plus-court-chemin">
+<h2>Parcours et plus court chemin<a class="headerlink" href="#parcours-et-plus-court-chemin" title="Link to this heading">#</a></h2>
+</section>
+<section id="reseaux-et-flots">
+<h2>Réseaux et flots<a class="headerlink" href="#reseaux-et-flots" title="Link to this heading">#</a></h2>
+</section>
+<section id="cc-et-ct">
+<h2>CC et CT<a class="headerlink" href="#cc-et-ct" title="Link to this heading">#</a></h2>
+<p>Semaine des examens</p>
+</section>
+</section>
+<section id="upvd-modalites-d-evaluation">
+<h1>#UPVD Modalités d’évaluation<a class="headerlink" href="#upvd-modalites-d-evaluation" title="Link to this heading">#</a></h1>
+<p>L’évaluation se fera sur vos TPs, évalués à l’oral (CC), ainsi que sur un examen (CT)</p>
+<p>Note UE : 1/2 CC + 1/2 CT</p>
+<section id="annales">
+<h2>Annales<a class="headerlink" href="#annales" title="Link to this heading">#</a></h2>
+<p>Désolé, je n’en n’ai pas encore.</p>
+</section>
+</section>
+<section id="du-bon-usage-des-aides">
+<h1>Du bon usage des aides<a class="headerlink" href="#du-bon-usage-des-aides" title="Link to this heading">#</a></h1>
+<p>Vous avez à disposition de multiples aides: enseignant, solutions en
+ligne, collègues, copains, famille, robots conversationnels, etc.</p>
+<p><strong>Vous êtes responsables de votre progression, à vous de les utiliser
+à bon escient.</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Nos conseils</p>
+<ul class="simple">
+<li><p>Les exercices de ce cours sont à réaliser par vous-même pour qu’ils
+soient utiles à votre progression. Copier ou simplement adapter une
+solution existante ne vous apportera pas grand chose.</p></li>
+<li><p>Si, après un temps de réflexion personnelle approfondie, vous ne
+voyez pas comment avancer, alors n’hésitez pas à demander <strong>des
+indications</strong> à vos aides.<br />
+Si vous vous adressez à un robot conversationnel, soyez précis dans
+votre invite (prompt): «Vous êtes un enseignant bienveillant d’un
+cours de master d’algorithmique de graphes. Je dois résoudre
+l’exercice suivant: … J’ai essayé … Sans me donner la solution,
+pourriez vous me donner une indication sur comment avancer à partir
+de là?»</p></li>
+<li><p>Vous pouvez aussi utiliser vos aides pour discuter vos solutions aux
+exercices.</p></li>
+<li><p>Privilégiez les conversations avec des humains; elles sont plus
+fécondes qu’avec un robot.<br />
+<strong>Vous êtes aussi responsable de votre impact environnemental</strong></p></li>
+</ul>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Évaluation des TPs</p>
+<p>Vous ne serez pas évalués sur vos rendus de TP, mais lors de deux ou
+trois mini-oraux portant sur le thème des TPs.</p>
+<p>Motivation:</p>
+<ul class="simple">
+<li><p>Vous inciter à <strong>comprendre</strong> les TPs plus qu’à les <strong>remplir</strong>.</p></li>
+<li><p>Consacrer mon temps de correction des TPs à des dialogues individuel
+féconds, plutôt qu’à faire le flic et compter des points derrière
+mon ordi.</p></li>
+<li><p>Vous faire remémorer vos TPs après la fin de ceux-ci, pour aider à
+ancrer les apprentissages sur le plus long terme.</p></li>
+</ul>
+</div>
+</section>
+<section id="environnement-de-travail">
+<h1>Environnement de travail<a class="headerlink" href="#environnement-de-travail" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Langage de programmation: Python 3</p></li>
+<li><p>Bibliothèques: networkx + matplotlib + …</p></li>
+<li><p>Environnement interactif: <a class="reference external" href="https://jupyter.org">Jupyter</a></p></li>
+<li><p>Forge logicielle: GitHub</p></li>
+</ul>
+<p>Dans cette section, nous expliquons:</p>
+<ul class="simple">
+<li><p>Comment accéder aux logiciels requis</p></li>
+<li><p>Comment télécharger et déposer vos devoirs</p></li>
+</ul>
+<p>Les instructions font l’hypothèse que vous travaillerez sur ce cours dans votre
+répertoire <code class="docutils literal notranslate"><span class="pre">~/L3-AlgoGraphes</span></code>. Vous pouvez choisir un autre nom.</p>
+<section id="acceder-aux-logiciels-requis">
+<h2>Accéder aux logiciels requis<a class="headerlink" href="#acceder-aux-logiciels-requis" title="Link to this heading">#</a></h2>
+<p>Ce cours utilise Python, Jupyter et quelques bibliothèques classiques (voir le
+fichier <a class="reference download internal" download="" href="_downloads/522adf759addbd3b193c74ca85243f7d/pyproject.toml"><span class="xref download myst">pyproject.toml</span></a>, ainsi que quelques paquets Python plus ou
+moins maison.</p>
+<div class="admonition-upvd-installation-en-local-de-l-environnement-de-travail admonition">
+<p class="admonition-title">#UPVD Installation en local de l’environnement de travail</p>
+<p>Vous devez installer les logiciels sur votre machine et travailler en
+local.</p>
+<div class="admonition-upvd-instructions-d-installation-avec-uv admonition">
+<p class="admonition-title">#UPVD Instructions d’installation avec <code class="docutils literal notranslate"><span class="pre">uv</span></code></p>
+<ol class="arabic">
+<li><p>Si vous ne l’avez pas déjà fait, installez le gestionnaire d’environnements
+<a class="reference external" href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>.</p></li>
+<li><p>Si vous ne l’avez pas déjà fait, téléchargez la «salle de TP virtuelle» :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/phillanglois/L3-Algo-Graphes.git 
+</pre></div>
+</div>
+</li>
+<li><p>Allez dans le dossier contenant le matériel pédagogique et lancez JupyterLab. Les
+logiciels requis seront automatiquement installés dans ce dossier.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/L3-Algo-Graphes
+uv run jupyter lab
+</pre></div>
+</div>
+<p>% uv run jupyter lab tableau_de_bord.md</p>
+</li>
+</ol>
+<p>La liste des logiciels pourra être mise à jour en en cours de semestre. Dans ce cas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~/L3-Algo-Graphes
+git pull
+uv sync
+</pre></div>
+</div>
+<div class="docutils">
+<div class="dropdown tip admonition">
+<p class="admonition-title">En savoir un peu plus</p>
+<p>Ce qui suit permet de mieux appréhender l’architecture logicielle de l’environnement mis en place par les collègues d’Orsay.
+Il permettra aux curieux de comprendre les évolutions entre l’environnement classique jupyter utilisé en L1 et celui-ci.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.astral.sh/uv/">uv</a> le gestionnaire de paquets python ; les fichiers de la configuration de l’environnement utilisé sont <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> (lisible et utile) et <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> (moins lisible)</p></li>
+<li><p><a class="reference external" href="https://jupytext.org">jupytext</a> “remplace” les fichiers .ipynb par leurs équivalents en .py ou .md exploitables et exécutables sous jupyter ; les fichiers de configurations sont dans <code class="docutils literal notranslate"><span class="pre">/install_files</span></code></p></li>
+</ul>
+</div>
+</div>
+<p>% :::{admonition} Avec Docker</p>
+</div>
+</div>
+</section>
+<section id="todo-upvd-telecharger-et-deposer-les-devoirs">
+<h2>TODO UPVD Télécharger et déposer les devoirs<a class="headerlink" href="#todo-upvd-telecharger-et-deposer-les-devoirs" title="Link to this heading">#</a></h2>
+<p>Le matériel pédagogique de ce cours est réparti sous la forme de devoirs que vous
+téléchargerez depuis le tableau de bord. Par exemple, lors de la première séance, vous
+téléchargerez le devoir 1-StructuresDeDonnees et suivrez les instructions dans les
+feuilles successives <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, <code class="docutils literal notranslate"><span class="pre">00-*.md</span></code>, <code class="docutils literal notranslate"><span class="pre">01-*.md</span></code>, … ainsi que <code class="docutils literal notranslate"><span class="pre">Rapport.md</span></code>.</p>
+<p>Depuis le tableau de bord, vous pouvez déposer votre travail aussi souvent que vous le
+souhaitez. Cela permet d’en avoir une sauvegarde et de le rendre disponible à vos
+enseignants et éventuellement votre binôme.</p>
+<p>Depuis le tableau de bord, vous pouvez aussi accéder au devoir et à votre dépôt, par
+exemple pour en consulter l’historique.</p>
+<div class="admonition-pour-en-savoir-plus admonition">
+<p class="admonition-title">Pour en savoir plus</p>
+<p>Chaque devoir est publié sous la forme d’un dépôt git sur la <a class="reference external" href="https://gitlab.dsi.universite-paris-saclay.fr">forge logicielle GitLab de
+l’université</a>. Télécharger le devoir
+revient à en faire une copie locale (clone) ou la mettre à jour (pull) si elle existe
+déjà. Déposer revient à créer une divergence privée (<em>fork</em>) ou de la mettre à jour si
+elle existe déjà (push)</p>
+</div>
+<section id="section">
+<h3>{#section}<a class="headerlink" href="#section" title="Link to this heading">#</a></h3>
+<p>TODO Consultation des résultats des tests automatiques</p>
+<p>Vous pouvez consulter les résultats des tests automatiques en navigant sur votre dépôt
+depuis le tableau de bord. Quelques minutes après avoir déposé, un badge apparaîtra
+avec votre score. Cliquez dessus et suivez les liens pour consulter le résultat de la
+correction automatique.</p>
+</section>
+<section id="travail-en-binome">
+<h3>Travail en binôme<a class="headerlink" href="#travail-en-binome" title="Link to this heading">#</a></h3>
+<p>Les TP seront à effectuer en binôme. Vous trouverez sur
+<a class="reference external" href="https://nicolas.thiery.name/Enseignement/Info111/collaboration.html">cette page web</a>
+des suggestions sur comment travailler en binôme, et notamment
+configurer vos dépôts sur GitLab pour faciliter la collaboration et la
+correction.</p>
+<div class="docutils">
+</div>
+<div class="docutils">
+</div>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="release/1-StructuresDeDonnees/00-PriseEnMain.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Prise en main de l’environnement de travail</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Problème 4: Fabriquer et résoudre des labyrinthes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#upvd-planning">#UPVD Planning</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-structures-de-donnees-terminologie-plus-courts-chemins">Graphes: structures de données, terminologie, plus courts chemins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbres-couvrants">Arbres couvrants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcours-et-plus-court-chemin">Parcours et plus court chemin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reseaux-et-flots">Réseaux et flots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-et-ct">CC et CT</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#upvd-modalites-d-evaluation">#UPVD Modalités d’évaluation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annales">Annales</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#du-bon-usage-des-aides">Du bon usage des aides</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#environnement-de-travail">Environnement de travail</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-aux-logiciels-requis">Accéder aux logiciels requis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-upvd-telecharger-et-deposer-les-devoirs">TODO UPVD Télécharger et déposer les devoirs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section">{#section}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-en-binome">Travail en binôme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florent Hivert, Viviane Pons, Nicolas M. Thiéry, Ph. Langlois
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
