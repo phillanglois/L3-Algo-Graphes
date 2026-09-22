@@ -1,0 +1,21 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+options:
+  numbered: 3
+parts:
+  - caption: 1-StructuresDeDonnees
+    numbered: 2
+    chapters:
+    - file: release/1-StructuresDeDonnees/README
+    - file: release/1-StructuresDeDonnees/00-PriseEnMain
+    - file: release/1-StructuresDeDonnees/01-Introduction
+    - file: release/1-StructuresDeDonnees/02-Comprehensions
+    - file: release/1-StructuresDeDonnees/03-Implantation
+
+
+    
