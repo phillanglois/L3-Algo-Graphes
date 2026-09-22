@@ -20,6 +20,8 @@ classifiers = [
 requires-python = "==3.13.*"
 readme = "README.md"
 dependencies = [
+    "ghp-import>=2.1.0",
+    "jupyter-book>=1.0.4.post1",
     "nbformat>=5.11.1",
     "pip>=25.2",
     "travo-prepare",
@@ -80,3 +82,6 @@ scripts_are_modules = "True"
 
 [tool.uv.sources]
 travo-prepare = { git = "https://gitlab.com/travo-cr/travo-prepare.git" }
+
+[tool.jupytext]
+formats = "ipynb,md:myst"

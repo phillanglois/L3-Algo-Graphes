@@ -95,6 +95,7 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 :width: 50%
 :::
 
+::: {#39dfdfba-86a2-4ecd-9cc8-86d38eb30e39 .cell .markdown}
 +++
 
 ### Problème 4: Fabriquer et résoudre des labyrinthes
@@ -346,6 +347,7 @@ Les TP seront à effectuer en binôme. Vous trouverez sur
 des suggestions sur comment travailler en binôme, et notamment
 configurer vos dépôts sur GitLab pour faciliter la collaboration et la
 correction.
+:::
 :::
 :::
 :::
