@@ -11,17 +11,32 @@ kernelspec:
   name: python3
 ---
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-1d836c2f9268f0e1", "tags": ["locked"]}
++++ {"deletable": false, "editable": false}
 
 # Rapport de TP
 
-+++ {"deletable": false, "grade_id": "cell-892ec4c17e615b9b", "points": 0, "tags": ["answer"]}
++++ {"deletable": false}
 
-Cellule cell-892ec4c17e615b9b
+L'objectif du rapport de TP est de donner une synthèse du travail réalisé. Pour cette
+séance, cette synthèse peut-être réalisée quasi automatiquement avec les outils de
+vérification de code combinés avec ce que vous avez déjà rédigé dans la documentation des
+méthodes. Vous n'avez donc que quelques mots à écrire ci-dessous.
 
-% REMPLACEZ CETTE LIGNE PAR VOTRE RÉPONSE
+## En quelques mots, qu'avez-vous appris?
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-f00c118da0fb33b6", "points": 0, "tags": ["locked"]}
+% REPLACE THIS LINE BY YOUR ANSWER
+
+## Quelles difficultés avez vous éventuellement rencontrées?
+
+% REPLACE THIS LINE BY YOUR ANSWER
+
+## Qu'avez vous aimé ou moins aimé dans ce TP?
+
+% REPLACE THIS LINE BY YOUR ANSWER
+
+## Notes et commentaires libres
+
++++ {"deletable": false, "editable": false}
 
 ## Qualité du code
 
@@ -32,53 +47,47 @@ Liste des fichiers de code :
 - [graph.py](graph.py)
 - ...
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-5d42db0fdaf62572", "tags": ["locked"]}
++++ {"deletable": false, "editable": false}
 
 Vérification de syntaxe et de style :
 
 ```{code-cell} ipython3
 :deletable: false
 :editable: false
-:grade_id: cell-e5e7a8b97e5fb0fe
-:points: 1
-:tags: [test]
-:test: true
 
 from utils import code_checker
+```
+
+```{code-cell} ipython3
+:deletable: false
+:editable: false
+
 code_checker("ruff check --ignore E741 --exclude nbgrader_config.py")
 ```
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-c45ae33a6e876c00", "tags": ["locked"]}
++++ {"deletable": false, "editable": false}
 
 Vérification statique de types :
 
 ```{code-cell} ipython3
 :deletable: false
 :editable: false
-:grade_id: cell-c9f65f41df4f145b
-:points: 1
-:tags: [test]
-:test: true
 
 code_checker("mypy .")
 ```
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-dc7cfd25d520b9d7", "tags": ["locked"]}
++++ {"deletable": false, "editable": false}
 
 Tests unitaires :
 
 ```{code-cell} ipython3
 :deletable: false
 :editable: false
-:grade_id: cell-6fb4d07f94265690
-:points: 4
-:tags: [test]
-:test: true
 
-code_checker("pytest --junit-xml=feedback/pytest.xml")
+code_checker("pytest -v --junit-xml=feedback/pytest.xml")
 ```
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-e24ca78e8b1b2c8b", "tags": ["locked"]}
++++ {"deletable": false, "editable": false}
 
 ## Code et complexité
 
@@ -87,22 +96,22 @@ Cette section sera plus développée dans le TP suivant.
 ```{code-cell} ipython3
 :deletable: false
 :editable: false
-:grade_id: cell-1c9b3a5e0d64360c
-:tags: [locked]
 
 from graph import Graph
 ```
 
-+++ {"deletable": false, "editable": false, "grade_id": "cell-69687d1f6ff2d2cf", "points": 0, "tags": ["locked"]}
++++ {"deletable": false, "editable": false}
 
 Code et complexité de `number_of_edges` :
 
 ```{code-cell} ipython3
 :deletable: false
 :editable: false
-:grade_id: cell-7f9eaeca83d5712d
-:tags: [locked]
 
 from utils import show_source
 show_source(Graph.number_of_edges)
+```
+
+```{code-cell} ipython3
+
 ```
