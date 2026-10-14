@@ -1,7 +1,6 @@
 ---
 jupytext:
   notebook_metadata_filter: rise
-  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
