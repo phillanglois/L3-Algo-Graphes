@@ -4,6 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
+  formats: md:myst,ipynb
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python

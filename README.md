@@ -199,9 +199,9 @@ ligne, collègues, copains, famille, robots conversationnels, etc.
 -   Privilégiez les conversations avec des humains; elles sont plus
     fécondes qu'avec un robot.\
     **Vous êtes aussi responsable de votre impact environnemental**
-
 :::
 
+::: {#ba99d7dd-2e17-4a3d-bc82-dbd63cd22b3e .cell .markdown}
 +++
 
 :::{admonition} Évaluation des TPs
@@ -218,9 +218,9 @@ Motivation:
     mon ordi.
 -   Vous faire remémorer vos TPs après la fin de ceux-ci, pour aider à
     ancrer les apprentissages sur le plus long terme.
-
 :::
 
+::: {#9249e815-d01b-4a8d-b954-fd6848db4d44 .cell .markdown}
 +++
 
 ## Environnement de travail
@@ -347,6 +347,8 @@ Les TP seront à effectuer en binôme. Vous trouverez sur
 des suggestions sur comment travailler en binôme, et notamment
 configurer vos dépôts sur GitLab pour faciliter la collaboration et la
 correction.
+:::
+:::
 :::
 :::
 :::
