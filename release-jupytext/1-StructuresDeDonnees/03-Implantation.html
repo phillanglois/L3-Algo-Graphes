@@ -215,7 +215,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Environnement de travail
+                    <no title>
                 </a>
             </li>
         </ul>
@@ -228,6 +228,15 @@
 <li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">4. Listes en compréhension</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Implantation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Rapport.html">6. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/README.html">7. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/00-Graph.html">8. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
 </ul>
 
     </div>
@@ -334,6 +343,23 @@
       
       
       <li><a href="../../_sources/release-jupytext/1-StructuresDeDonnees/03-Implantation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/1-StructuresDeDonnees/03-Implantation.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +369,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -443,7 +469,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 <span class="p">[</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span> <span class="p">]</span>
 </pre></div>
 </div>
@@ -451,7 +477,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">))}</span>
 </pre></div>
 </div>
@@ -459,7 +485,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -467,7 +493,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +514,7 @@ de la fiche précédente.</p>
 </div>
 <div class="cell tag_answer docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-7465315001846df2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-7465315001846df2</span>
 <span class="c1"># REMPLACEZ TOUTE CETTE LIGNE PAR VOTRE CODE</span>
 
 <span class="c1"># G0</span>

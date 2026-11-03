@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Environnement de travail &#8212; Algorithmique des graphes</title>
+    <title>&lt;no title&gt; &#8212; Algorithmique des graphes</title>
   
   
   
@@ -218,7 +218,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Environnement de travail
+                    <no title>
                 </a>
             </li>
         </ul>
@@ -231,6 +231,15 @@
 <li class="toctree-l1"><a class="reference internal" href="release-jupytext/1-StructuresDeDonnees/02-Comprehensions.html">4. Listes en compréhension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release-jupytext/1-StructuresDeDonnees/03-Implantation.html">5. Implantation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release-jupytext/1-StructuresDeDonnees/Rapport.html">6. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="release-jupytext/2-ParcoursDeGraphes/README.html">7. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-jupytext/2-ParcoursDeGraphes/00-Graph.html">8. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-jupytext/2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-jupytext/2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-jupytext/2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-jupytext/2-ParcoursDeGraphes/04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
 </ul>
 
     </div>
@@ -381,7 +390,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Environnement de travail</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,13 +400,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-aux-logiciels-requis">Accéder aux logiciels requis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-upvd-telecharger-et-deposer-les-devoirs">TODO UPVD Télécharger et déposer les devoirs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section">{#section}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-en-binome">Travail en binôme</a></li>
 </ul>
-</li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -408,7 +412,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="{#0b832a15-b79a-4809-bfe9-33c8574861aa docutils">
+  <div class="{#15210705-13da-4716-b35c-3e62ddc5ba13 docutils">
 <h1 class="rubric" id="algorithmique-des-graphes">Algorithmique des graphes</h1>
 <p>Ce dépôt à destination des L3 Informatique et Mathématiques de l’UPVD reprend le cours</p>
 <p><strong>Algorithmique avancée</strong> du</p>
@@ -436,20 +440,21 @@ abordés.»</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://perso.univ-perp.fr/langlois">Philippe Langlois</a></p></li>
 </ul>
+</div>
+<div class="{#0b832a15-b79a-4809-bfe9-33c8574861aa docutils">
 <h2 class="rubric" id="vue-d-ensemble">Vue d’ensemble</h2>
 <p>Les notions du cours seront abordées par la pratique, tout d’abord par
 l’implantation de structures de données de graphes, puis leur
 utilisation pour résoudre quatre problèmes.</p>
 <h3 class="rubric" id="structures-de-donnees-pour-les-graphes">Structures de données pour les graphes</h3>
-<h3 class="rubric" id="id1"></h3>
-<p>Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?</p>
+<h3 class="rubric" id="probleme-1-le-chemin-le-plus-rapide-en-metro-de-montgallet-a-billancourt-probleme-1-le-chemin-le-plus-rapide-en-metro-de-montgallet-a-billancourt">Problème 1 : Le chemin le plus rapide en métro de Montgallet à Billancourt ? {#problème-1–le-chemin-le-plus-rapide-en-métro-de-montgallet-à-billancourt-}</h3>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/metro-paris.gif"><img alt="_images/metro-paris.gif" src="_images/metro-paris.gif" style="width: 50%;" />
 </a>
 </figure>
 </div>
 <div class="{#56aca199-da03-4780-8561-0e7e24739828 docutils">
-<h3 class="rubric" id="probleme-2-rush-hour">Problème 2: <a class="reference external" href="http://www.thinkfun.com/products/rush-hour/">Rush Hour</a></h3>
+<h3 class="rubric" id="probleme-2-rush-hour-probleme-2-rush-hour">Problème 2 : <a class="reference external" href="http://www.thinkfun.com/products/rush-hour/">Rush Hour</a> {#problème-2–rush-hour}</h3>
 <p>La voiture rouge est coincée dans un embouteillage; comment déplacer les véhicules pour la faire sortir?
 Ci-dessous le défi 1. Saurez-vous faire résoudre par l’ordinateur le défi 40 en un nombre minimum du coups?</p>
 <figure class="align-default">
@@ -457,14 +462,20 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l’ordinateur le défi 4
 </figure>
 </div>
 <div class="{#5025a5fa-6292-45a2-b60c-bd048d51939d docutils">
-<h3 class="rubric" id="probleme-3-faire-passer-le-maximum-de-courant">Problème 3: Faire passer le maximum de courant</h3>
+<h3 class="rubric" id="probleme-3-faire-passer-le-maximum-de-courant-probleme-3-faire-passer-le-maximum-de-courant">Problème 3 : Faire passer le maximum de courant {#problème-3–faire-passer-le-maximum-de-courant}</h3>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/reseau-electrique.png"><img alt="_images/reseau-electrique.png" src="_images/reseau-electrique.png" style="width: 50%;" />
 </a>
 </figure>
 </div>
+<div class="{#ab5e0dd0-09ed-4306-ab70-93fd544e8083 docutils">
+<h3 class="rubric" id="probleme-4-fabriquer-et-resoudre-des-labyrinthes-probleme-4-fabriquer-et-resoudre-des-labyrinthes">Problème 4 : Fabriquer et résoudre des labyrinthes {#problème-4–fabriquer-et-résoudre-des-labyrinthes}</h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/labyrinthe.png"><img alt="_images/labyrinthe.png" src="_images/labyrinthe.png" style="width: 50%;" />
+</a>
+</figure>
+</div>
 <div class="{#39dfdfba-86a2-4ecd-9cc8-86d38eb30e39 docutils">
-<h3 class="rubric" id="probleme-4-fabriquer-et-resoudre-des-labyrinthes">Problème 4: Fabriquer et résoudre des labyrinthes</h3>
 <h2 class="rubric" id="upvd-planning">#UPVD Planning</h2>
 <p>12 séances de 3h: Cours ou cours + TD + TP intégré</p>
 <p>mercredi 14h-17h, salle banalisée (1h30) puis salle info (1h30)</p>
@@ -511,6 +522,7 @@ fécondes qu’avec un robot.<br />
 </ul>
 </div>
 </div>
+<div class="{#ba99d7dd-2e17-4a3d-bc82-dbd63cd22b3e docutils">
 <div class="hint admonition">
 <p class="admonition-title">Évaluation des TPs</p>
 <p>Vous ne serez pas évalués sur vos rendus de TP, mais lors de deux ou
@@ -525,8 +537,9 @@ mon ordi.</p></li>
 ancrer les apprentissages sur le plus long terme.</p></li>
 </ul>
 </div>
-<section id="environnement-de-travail">
-<h1>Environnement de travail<a class="headerlink" href="#environnement-de-travail" title="Link to this heading">#</a></h1>
+</div>
+<div class="{#9249e815-d01b-4a8d-b954-fd6848db4d44 docutils">
+<h2 class="rubric" id="environnement-de-travail">Environnement de travail</h2>
 <ul class="simple">
 <li><p>Langage de programmation: Python 3</p></li>
 <li><p>Bibliothèques: networkx + matplotlib + …</p></li>
@@ -540,8 +553,7 @@ ancrer les apprentissages sur le plus long terme.</p></li>
 </ul>
 <p>Les instructions font l’hypothèse que vous travaillerez sur ce cours dans votre
 répertoire <code class="docutils literal notranslate"><span class="pre">~/L3-AlgoGraphes</span></code>. Vous pouvez choisir un autre nom.</p>
-<section id="acceder-aux-logiciels-requis">
-<h2>Accéder aux logiciels requis<a class="headerlink" href="#acceder-aux-logiciels-requis" title="Link to this heading">#</a></h2>
+<h3 class="rubric" id="acceder-aux-logiciels-requis">Accéder aux logiciels requis</h3>
 <p>Ce cours utilise Python, Jupyter et quelques bibliothèques classiques (voir le
 fichier <a class="reference download internal" download="" href="_downloads/522adf759addbd3b193c74ca85243f7d/pyproject.toml"><span class="xref download myst">pyproject.toml</span></a>, ainsi que quelques paquets Python plus ou
 moins maison.</p>
@@ -574,7 +586,10 @@ git pull
 uv sync
 </pre></div>
 </div>
-<div class="docutils">
+</div>
+</div>
+</div>
+<div class="{#a36a9fe7-48e6-4208-b5ac-30a9b2088b46 docutils">
 <div class="dropdown tip admonition">
 <p class="admonition-title">En savoir un peu plus</p>
 <p>Ce qui suit permet de mieux appréhender l’architecture logicielle de l’environnement mis en place par les collègues d’Orsay.
@@ -585,53 +600,15 @@ Il permettra aux curieux de comprendre les évolutions entre l’environnement c
 </ul>
 </div>
 </div>
-<p>% :::{admonition} Avec Docker</p>
+<div class="{#e1b9ff1b-9f2a-48f2-8f01-1c86a9bbe320 docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
-</section>
-<section id="todo-upvd-telecharger-et-deposer-les-devoirs">
-<h2>TODO UPVD Télécharger et déposer les devoirs<a class="headerlink" href="#todo-upvd-telecharger-et-deposer-les-devoirs" title="Link to this heading">#</a></h2>
-<p>Le matériel pédagogique de ce cours est réparti sous la forme de devoirs que vous
-téléchargerez depuis le tableau de bord. Par exemple, lors de la première séance, vous
-téléchargerez le devoir 1-StructuresDeDonnees et suivrez les instructions dans les
-feuilles successives <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, <code class="docutils literal notranslate"><span class="pre">00-*.md</span></code>, <code class="docutils literal notranslate"><span class="pre">01-*.md</span></code>, … ainsi que <code class="docutils literal notranslate"><span class="pre">Rapport.md</span></code>.</p>
-<p>Depuis le tableau de bord, vous pouvez déposer votre travail aussi souvent que vous le
-souhaitez. Cela permet d’en avoir une sauvegarde et de le rendre disponible à vos
-enseignants et éventuellement votre binôme.</p>
-<p>Depuis le tableau de bord, vous pouvez aussi accéder au devoir et à votre dépôt, par
-exemple pour en consulter l’historique.</p>
-<div class="admonition-pour-en-savoir-plus admonition">
-<p class="admonition-title">Pour en savoir plus</p>
-<p>Chaque devoir est publié sous la forme d’un dépôt git sur la <a class="reference external" href="https://gitlab.dsi.universite-paris-saclay.fr">forge logicielle GitLab de
-l’université</a>. Télécharger le devoir
-revient à en faire une copie locale (clone) ou la mettre à jour (pull) si elle existe
-déjà. Déposer revient à créer une divergence privée (<em>fork</em>) ou de la mettre à jour si
-elle existe déjà (push)</p>
-</div>
-<section id="section">
-<h3>{#section}<a class="headerlink" href="#section" title="Link to this heading">#</a></h3>
-<p>TODO Consultation des résultats des tests automatiques</p>
-<p>Vous pouvez consulter les résultats des tests automatiques en navigant sur votre dépôt
-depuis le tableau de bord. Quelques minutes après avoir déposé, un badge apparaîtra
-avec votre score. Cliquez dessus et suivez les liens pour consulter le résultat de la
-correction automatique.</p>
-</section>
-<section id="travail-en-binome">
-<h3>Travail en binôme<a class="headerlink" href="#travail-en-binome" title="Link to this heading">#</a></h3>
-<p>Les TP seront à effectuer en binôme. Vous trouverez sur
-<a class="reference external" href="https://nicolas.thiery.name/Enseignement/Info111/collaboration.html">cette page web</a>
-des suggestions sur comment travailler en binôme, et notamment
-configurer vos dépôts sur GitLab pour faciliter la collaboration et la
-correction.</p>
-<div class="docutils">
-</div>
-<div class="docutils">
-</div>
-</section>
-</section>
 <div class="toctree-wrapper compound">
 </div>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -690,13 +667,8 @@ correction.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-aux-logiciels-requis">Accéder aux logiciels requis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-upvd-telecharger-et-deposer-les-devoirs">TODO UPVD Télécharger et déposer les devoirs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section">{#section}</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-en-binome">Travail en binôme</a></li>
 </ul>
-</li>
-</ul>
+
   </nav></div>
 
 </div></div>

@@ -64,6 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7. Thème 2 : Parcours de graphes" href="../2-ParcoursDeGraphes/README.html" />
     <link rel="prev" title="5. Implantation" href="03-Implantation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -214,7 +215,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Environnement de travail
+                    <no title>
                 </a>
             </li>
         </ul>
@@ -227,6 +228,15 @@
 <li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">4. Listes en compréhension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-Implantation.html">5. Implantation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/README.html">7. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/00-Graph.html">8. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
 </ul>
 
     </div>
@@ -333,6 +343,23 @@
       
       
       <li><a href="../../_sources/release-jupytext/1-StructuresDeDonnees/Rapport.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/1-StructuresDeDonnees/Rapport.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -342,7 +369,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -418,8 +445,12 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualite-du-code">6.1. Qualité du code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-et-complexite">6.2. Code et complexité</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-quelques-mots-qu-avez-vous-appris">6.1. En quelques mots, qu’avez-vous appris?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelles-difficultes-avez-vous-eventuellement-rencontrees">6.2. Quelles difficultés avez vous éventuellement rencontrées?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-avez-vous-aime-ou-moins-aime-dans-ce-tp">6.3. Qu’avez vous aimé ou moins aimé dans ce TP?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-et-commentaires-libres">6.4. Notes et commentaires libres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualite-du-code">6.5. Qualité du code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-et-complexite">6.6. Code et complexité</a></li>
 </ul>
             </nav>
         </div>
@@ -433,54 +464,75 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rapport-de-tp">
 <h1><span class="section-number">6. </span>Rapport de TP<a class="headerlink" href="#rapport-de-tp" title="Link to this heading">#</a></h1>
-<p>Cellule cell-892ec4c17e615b9b</p>
+<p>L’objectif du rapport de TP est de donner une synthèse du travail réalisé. Pour cette
+séance, cette synthèse peut-être réalisée quasi automatiquement avec les outils de
+vérification de code combinés avec ce que vous avez déjà rédigé dans la documentation des
+méthodes. Vous n’avez donc que quelques mots à écrire ci-dessous.</p>
+<section id="en-quelques-mots-qu-avez-vous-appris">
+<h2><span class="section-number">6.1. </span>En quelques mots, qu’avez-vous appris?<a class="headerlink" href="#en-quelques-mots-qu-avez-vous-appris" title="Link to this heading">#</a></h2>
+</section>
+<section id="quelles-difficultes-avez-vous-eventuellement-rencontrees">
+<h2><span class="section-number">6.2. </span>Quelles difficultés avez vous éventuellement rencontrées?<a class="headerlink" href="#quelles-difficultes-avez-vous-eventuellement-rencontrees" title="Link to this heading">#</a></h2>
+</section>
+<section id="qu-avez-vous-aime-ou-moins-aime-dans-ce-tp">
+<h2><span class="section-number">6.3. </span>Qu’avez vous aimé ou moins aimé dans ce TP?<a class="headerlink" href="#qu-avez-vous-aime-ou-moins-aime-dans-ce-tp" title="Link to this heading">#</a></h2>
+</section>
+<section id="notes-et-commentaires-libres">
+<h2><span class="section-number">6.4. </span>Notes et commentaires libres<a class="headerlink" href="#notes-et-commentaires-libres" title="Link to this heading">#</a></h2>
+</section>
 <section id="qualite-du-code">
-<h2><span class="section-number">6.1. </span>Qualité du code<a class="headerlink" href="#qualite-du-code" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Qualité du code<a class="headerlink" href="#qualite-du-code" title="Link to this heading">#</a></h2>
 <p>Liste des fichiers de code :</p>
 <ul class="simple">
 <li><p><a class="reference download internal" download="" href="../../_downloads/e5870b0fbf6c41b236a69dd6c95a9986/graph.py"><span class="xref download myst">graph.py</span></a></p></li>
 <li><p>…</p></li>
 </ul>
 <p>Vérification de syntaxe et de style :</p>
-<div class="cell tag_test docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">code_checker</span>
-<span class="n">code_checker</span><span class="p">(</span><span class="s2">"ruff check --ignore E741 --exclude nbgrader_config.py"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">code_checker</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">code_checker</span><span class="p">(</span><span class="s2">"ruff check --ignore E741 --exclude nbgrader_config.py"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Vérification statique de types :</p>
-<div class="cell tag_test docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_checker</span><span class="p">(</span><span class="s2">"mypy ."</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">code_checker</span><span class="p">(</span><span class="s2">"mypy ."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Tests unitaires :</p>
-<div class="cell tag_test docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code_checker</span><span class="p">(</span><span class="s2">"pytest --junit-xml=feedback/pytest.xml"</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">code_checker</span><span class="p">(</span><span class="s2">"pytest -v --junit-xml=feedback/pytest.xml"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="code-et-complexite">
-<h2><span class="section-number">6.2. </span>Code et complexité<a class="headerlink" href="#code-et-complexite" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Code et complexité<a class="headerlink" href="#code-et-complexite" title="Link to this heading">#</a></h2>
 <p>Cette section sera plus développée dans le TP suivant.</p>
-<div class="cell tag_locked docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Code et complexité de <code class="docutils literal notranslate"><span class="pre">number_of_edges</span></code> :</p>
-<div class="cell tag_locked docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_source</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">show_source</span>
 <span class="n">show_source</span><span class="p">(</span><span class="n">Graph</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -528,6 +580,15 @@
         <p class="prev-next-title"><span class="section-number">5. </span>Implantation</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../2-ParcoursDeGraphes/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Thème 2 : Parcours de graphes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -546,8 +607,12 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualite-du-code">6.1. Qualité du code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-et-complexite">6.2. Code et complexité</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-quelques-mots-qu-avez-vous-appris">6.1. En quelques mots, qu’avez-vous appris?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelles-difficultes-avez-vous-eventuellement-rencontrees">6.2. Quelles difficultés avez vous éventuellement rencontrées?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-avez-vous-aime-ou-moins-aime-dans-ce-tp">6.3. Qu’avez vous aimé ou moins aimé dans ce TP?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-et-commentaires-libres">6.4. Notes et commentaires libres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qualite-du-code">6.5. Qualité du code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-et-complexite">6.6. Code et complexité</a></li>
 </ul>
   </nav></div>
 

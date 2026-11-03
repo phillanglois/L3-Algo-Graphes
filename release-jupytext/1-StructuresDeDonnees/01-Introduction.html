@@ -217,7 +217,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../README.html">
-                    Environnement de travail
+                    <no title>
                 </a>
             </li>
         </ul>
@@ -230,6 +230,15 @@
 <li class="toctree-l1"><a class="reference internal" href="02-Comprehensions.html">4. Listes en compréhension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-Implantation.html">5. Implantation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Rapport.html">6. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/README.html">7. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/00-Graph.html">8. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
 </ul>
 
     </div>
@@ -336,6 +345,23 @@
       
       
       <li><a href="../../_sources/release-jupytext/1-StructuresDeDonnees/01-Introduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/1-StructuresDeDonnees/01-Introduction.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,7 +371,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -460,15 +486,12 @@ des <em><strong>arêtes</strong></em>. Voilà un exemple avec cinq sommets. Les 
 entre eux. Mais pas 1 et 4.</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">graph_networkx</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">graph_networkx</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
                          <span class="n">edges</span><span class="o">=</span><span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">])</span>
 <span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/ff4c65f567c56734f46fda6a3b8990c2e2d47704d92ae89742a54c4fa6d61859.png" src="../../_images/ff4c65f567c56734f46fda6a3b8990c2e2d47704d92ae89742a54c4fa6d61859.png" />
 </div>
 </div>
 <p>La définition formelle la plus simple est la suivante:</p>
@@ -526,7 +549,7 @@ sommets, <span class="math notranslate nohighlight">\(0,1,2\)</span>, et deux ar
 et la deuxième relie <span class="math notranslate nohighlight">\(0\)</span> à <span class="math notranslate nohighlight">\(2\)</span> avec une capacité de <span class="math notranslate nohighlight">\(4\)</span>.</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -534,7 +557,7 @@ et la deuxième relie <span class="math notranslate nohighlight">\(0\)</span> à
 <p>Voici la structure de donnée pour un autre graphe <span class="math notranslate nohighlight">\(G_1\)</span>:</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -546,12 +569,7 @@ et la deuxième relie <span class="math notranslate nohighlight">\(0\)</span> à
 <p>Pour chaque structure de données de ce cours, un type (laxiste) est fourni. Ici, ce sera:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeList</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>typing.Sequence[typing.Tuple[typing.Any, typing.Any, typing.Any]]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeList</span>
 </pre></div>
 </div>
 </div>
@@ -560,7 +578,7 @@ et la deuxième relie <span class="math notranslate nohighlight">\(0\)</span> à
 vérifications dynamiques:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typeguard</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_type</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typeguard</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_type</span>
 <span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeList</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -576,19 +594,14 @@ qui associe la valeur <code class="docutils literal notranslate"><span class="pr
 <code class="docutils literal notranslate"><span class="pre">&quot;pi&quot;</span></code> à la clé <code class="docutils literal notranslate"><span class="pre">3.13</span></code>:</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bla"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"ble"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">:</span> <span class="s2">"pi"</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bla"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"ble"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">:</span> <span class="s2">"pi"</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'bla': 1, 'ble': 3, 3.14: 'pi'}
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>
 </pre></div>
 </div>
 </div>
@@ -596,12 +609,7 @@ qui associe la valeur <code class="docutils literal notranslate"><span class="pr
 <p>On peut accéder à une valeur à partir de sa clé avec l’opération suivante:</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'pi'
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -620,7 +628,7 @@ valeur associée à la clé <code class="docutils literal notranslate"><span cla
 <p>Voici le dictionnaire des voisins pour <span class="math notranslate nohighlight">\(G_0\)</span>:</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DV0</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DV0</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -631,7 +639,7 @@ valeur associée à la clé <code class="docutils literal notranslate"><span cla
 </div>
 <div class="cell tag_answer docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-d662314d2272933e</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-d662314d2272933e</span>
 <span class="c1"># REMPLACEZ TOUTE CETTE LIGNE PAR VOTRE CODE</span>
 </pre></div>
 </div>
@@ -639,19 +647,8 @@ valeur associée à la clé <code class="docutils literal notranslate"><span cla
 </div>
 <div class="cell tag_test docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DV1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">NeighborDict</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DV1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">NeighborDict</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">DV1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">for</span> <span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DV1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">NeighborDict</span><span class="p">)</span>
-<span class="nn">      2 assert sorted(L1) == sorted( (i,j, w) for i, l</span> in <span class="ni">DV1.items</span><span class="nt">() for [j,w] in l )</span>
-
-<span class="ne">NameError</span>: name 'DV1' is not defined
 </pre></div>
 </div>
 </div>
@@ -663,7 +660,7 @@ lieu d’un dictionnaire :</p>
 </div>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Avec un tableau (graphe etiquete par 0,1,...)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Avec un tableau (graphe etiquete par 0,1,...)</span>
 <span class="n">DV0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span> <span class="p">]</span>
 </pre></div>
 </div>
@@ -677,7 +674,7 @@ lieu d’un dictionnaire :</p>
 <p>Voici le dictionnaire pour <span class="math notranslate nohighlight">\(G_0\)</span>:</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DA0</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="mi">10</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DA0</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="mi">10</span><span class="p">,</span>
         <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span> <span class="mi">4</span>
       <span class="p">}</span>
 </pre></div>
@@ -690,7 +687,7 @@ lieu d’un dictionnaire :</p>
 </div>
 <div class="cell tag_answer docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-98fa5972274a0bce</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-98fa5972274a0bce</span>
 <span class="c1"># REMPLACEZ TOUTE CETTE LIGNE PAR VOTRE CODE</span>
 </pre></div>
 </div>
@@ -698,19 +695,8 @@ lieu d’un dictionnaire :</p>
 </div>
 <div class="cell tag_test docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DA1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeDict</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DA1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeDict</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">DA1</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">DA1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">EdgeDict</span><span class="p">)</span>
-<span class="nn">      2 assert sorted(L1) == sorted((i, j, c) for (i, j), c</span> in <span class="ni">DA1.items</span><span class="nt">())</span>
-
-<span class="ne">NameError</span>: name 'DA1' is not defined
 </pre></div>
 </div>
 </div>
@@ -724,7 +710,7 @@ lieu d’un dictionnaire :</p>
 n’y a pas d’arête.</p>
 <div class="cell tag_locked docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 </pre></div>
@@ -744,7 +730,7 @@ n’y a pas d’arête.</p>
 </div>
 <div class="cell tag_answer docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-9caa44fcb3382c31</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cellule cell-9caa44fcb3382c31</span>
 <span class="c1"># REMPLACEZ TOUTE CETTE LIGNE PAR VOTRE CODE</span>
 </pre></div>
 </div>
@@ -752,23 +738,10 @@ n’y a pas d’arête.</p>
 </div>
 <div class="cell tag_test docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">AdjacencyMatrix</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">AdjacencyMatrix</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
 <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">6</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
 <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">M1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">check_type</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">graph_networkx</span><span class="o">.</span><span class="n">AdjacencyMatrix</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
-<span class="nn">      3 assert all(len(M1[i]) == 6 for i</span> in <span class="ni">range</span><span class="nt">(6))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">M1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
-
-<span class="ne">NameError</span>: name 'M1' is not defined
 </pre></div>
 </div>
 </div>
