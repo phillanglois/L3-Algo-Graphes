@@ -13,7 +13,7 @@ jupyter:
   nbformat_minor: 5
 ---
 
-::: {#0b832a15-b79a-4809-bfe9-33c8574861aa .cell .markdown}
+::: {#15210705-13da-4716-b35c-3e62ddc5ba13 .cell .markdown}
 # Algorithmique des graphes
 
 Ce dépôt à destination des L3 Informatique et Mathématiques de l'UPVD reprend le cours
@@ -49,7 +49,9 @@ abordés.»
 ### #UPVD Enseignant pour cette expérimentation à l'UPVD
 
 -   [Philippe Langlois](http://perso.univ-perp.fr/langlois)
+:::
 
+::: {#0b832a15-b79a-4809-bfe9-33c8574861aa .cell .markdown}
 +++
 
 ## Vue d'ensemble
@@ -66,9 +68,7 @@ utilisation pour résoudre quatre problèmes.
 
 +++
 
-### 
-
-Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?
+### Problème 1 : Le chemin le plus rapide en métro de Montgallet à Billancourt ? {#problème-1--le-chemin-le-plus-rapide-en-métro-de-montgallet-à-billancourt-}
 
 :::{figure} media/metro-paris.gif
 :width: 50%
@@ -77,7 +77,7 @@ Problème 1: Le chemin le plus rapide en métro de Montgallet à Billancourt ?
 ::: {#56aca199-da03-4780-8561-0e7e24739828 .cell .markdown}
 +++
 
-### Problème 2: [Rush Hour](http://www.thinkfun.com/products/rush-hour/)
+### Problème 2 : [Rush Hour](http://www.thinkfun.com/products/rush-hour/) {#problème-2--rush-hour}
 
 La voiture rouge est coincée dans un embouteillage; comment déplacer les véhicules pour la faire sortir?
 Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 en un nombre minimum du coups?
@@ -89,26 +89,24 @@ Ci-dessous le défi 1. Saurez-vous faire résoudre par l'ordinateur le défi 40 
 ::: {#5025a5fa-6292-45a2-b60c-bd048d51939d .cell .markdown}
 +++
 
-### Problème 3: Faire passer le maximum de courant
+### Problème 3 : Faire passer le maximum de courant {#problème-3--faire-passer-le-maximum-de-courant}
 
 :::{figure} media/reseau-electrique.png
 :width: 50%
 :::
 
+::: {#ab5e0dd0-09ed-4306-ab70-93fd544e8083 .cell .markdown}
++++
+
+### Problème 4 : Fabriquer et résoudre des labyrinthes {#problème-4--fabriquer-et-résoudre-des-labyrinthes}
+
+:::{figure} media/labyrinthe.png
+:width: 50%
+
++++
+:::
+
 ::: {#39dfdfba-86a2-4ecd-9cc8-86d38eb30e39 .cell .markdown}
-+++
-
-### Problème 4: Fabriquer et résoudre des labyrinthes
-
-```{=html}
-<center>
-
-<img src="media/labyrinthe.png" width="50%">
-
-</center>
-```
-+++
-
 ## #UPVD Planning
 
 +++
@@ -142,17 +140,6 @@ mercredi 14h-17h, salle banalisée (1h30) puis salle info (1h30)
 
 Semaine des examens
 
-```{=html}
-<!--
-Tri topologique, ordonnancement simple (UET, 1 ou infinté processeurs)
-
-Arbre, labyrithes, arbre couvrant de poids minimal algos Kruskal puis Prim.
-
-Réseaux: Dijkstra, flots, Ford-Fulkerson, ...
-
-Article de Mathieu Gay Paquet
-!-->
-```
 +++
 
 ## #UPVD Modalités d'évaluation
@@ -275,9 +262,9 @@ La liste des logiciels pourra être mise à jour en en cours de semestre. Dans c
     cd ~/L3-Algo-Graphes
     git pull
     uv sync
-
 :::
 
+::: {#a36a9fe7-48e6-4208-b5ac-30a9b2088b46 .cell .markdown}
 :::{admonition} En savoir un peu plus
 :class: dropdown tip
 
@@ -286,70 +273,9 @@ Il permettra aux curieux de comprendre les évolutions entre l\'environnement cl
 
 -   [uv](https://docs.astral.sh/uv/) le gestionnaire de paquets python ; les fichiers de la configuration de l\'environnement utilisé sont `pyproject.toml` (lisible et utile) et `uv.lock` (moins lisible)
 -   [jupytext](https://jupytext.org) \"remplace\" les fichiers .ipynb par leurs équivalents en .py ou .md exploitables et exécutables sous jupyter ; les fichiers de configurations sont dans `/install_files`
-
 :::
 
-\% :::{admonition} Avec Docker
-%\
-% Une image docker du cours est fournie dans le
-% [Container Registry](https://gitlab.dsi.universite-paris-saclay.fr/M1InfoISDAlgorithmiqueAvancee/ComputerLab/container_registry)
-% du projet Gitlab du cours. Voici son identifiant:
-%\
-% gitlab.dsi.universite-paris-saclay.fr:5005/m1infoisdalgorithmiqueavancee/computerlab/image:latest
-%\
-% :::
-
-::::
-
-+++
-
-### TODO UPVD Télécharger et déposer les devoirs
-
-Le matériel pédagogique de ce cours est réparti sous la forme de devoirs que vous
-téléchargerez depuis le tableau de bord. Par exemple, lors de la première séance, vous
-téléchargerez le devoir 1-StructuresDeDonnees et suivrez les instructions dans les
-feuilles successives `README.md`, `00-*.md`, `01-*.md`, ... ainsi que `Rapport.md`.
-
-Depuis le tableau de bord, vous pouvez déposer votre travail aussi souvent que vous le
-souhaitez. Cela permet d'en avoir une sauvegarde et de le rendre disponible à vos
-enseignants et éventuellement votre binôme.
-
-Depuis le tableau de bord, vous pouvez aussi accéder au devoir et à votre dépôt, par
-exemple pour en consulter l'historique.
-
-:::{admonition} Pour en savoir plus
-
-Chaque devoir est publié sous la forme d'un dépôt git sur la [forge logicielle GitLab de
-l'université](https://gitlab.dsi.universite-paris-saclay.fr). Télécharger le devoir
-revient à en faire une copie locale (clone) ou la mettre à jour (pull) si elle existe
-déjà. Déposer revient à créer une divergence privée (*fork*) ou de la mettre à jour si
-elle existe déjà (push)
-
-:::
-
-+++
-
-####  {#section}
-
-TODO Consultation des résultats des tests automatiques
-
-Vous pouvez consulter les résultats des tests automatiques en navigant sur votre dépôt
-depuis le tableau de bord. Quelques minutes après avoir déposé, un badge apparaîtra
-avec votre score. Cliquez dessus et suivez les liens pour consulter le résultat de la
-correction automatique.
-
-+++
-
-#### Travail en binôme
-
-Les TP seront à effectuer en binôme. Vous trouverez sur
-[cette page web](https://nicolas.thiery.name/Enseignement/Info111/collaboration.html)
-des suggestions sur comment travailler en binôme, et notamment
-configurer vos dépôts sur GitLab pour faciliter la collaboration et la
-correction.
-:::
-:::
-:::
-:::
-:::
+::: {#e1b9ff1b-9f2a-48f2-8f01-1c86a9bbe320 .cell .code}
+``` python
+```
 :::

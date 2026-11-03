@@ -9,23 +9,23 @@ options:
   numbered: 3
 parts:
   - caption: 1-StructuresDeDonnees
-    numbered: 2
+    numbered: True
     chapters:
-    - file: release-jupytext/1-StructuresDeDonnees/README
-    - file: release-jupytext/1-StructuresDeDonnees/00-PriseEnMain
-    - file: release-jupytext/1-StructuresDeDonnees/01-Introduction
-    - file: release-jupytext/1-StructuresDeDonnees/02-Comprehensions
-    - file: release-jupytext/1-StructuresDeDonnees/03-Implantation
-    - file: release-jupytext/1-StructuresDeDonnees/Rapport
+    - file: release-jupytext/1-StructuresDeDonnees/README.md
+    - file: release-jupytext/1-StructuresDeDonnees/00-PriseEnMain.md
+    - file: release-jupytext/1-StructuresDeDonnees/01-Introduction.md
+    - file: release-jupytext/1-StructuresDeDonnees/02-Comprehensions.md
+    - file: release-jupytext/1-StructuresDeDonnees/03-Implantation.md
+    - file: release-jupytext/1-StructuresDeDonnees/Rapport.md
   - caption: 2-ParcoursDeGraphes
-    numbered: 2
+    numbered: True
     chapters:
-    - file: release-jupytext/2-ParcoursDeGraphes/README
-    - file: release-jupytext/2-ParcoursDeGraphes/00-Graph
-    - file: release-jupytext/2-ParcoursDeGraphes/01-ParcoursDeGraphe
-    - file: release-jupytext/2-ParcoursDeGraphes/02-ParcoursEnLargeur
-    - file: release-jupytext/2-ParcoursDeGraphes/03-ParcoursEnProfondeur
-    - file: release-jupytext/2-ParcoursDeGraphes/04-Dijkstra
+    - file: release-jupytext/2-ParcoursDeGraphes/README.md
+    - file: release-jupytext/2-ParcoursDeGraphes/00-Graph.md
+    - file: release-jupytext/2-ParcoursDeGraphes/01-ParcoursDeGraphe.md
+    - file: release-jupytext/2-ParcoursDeGraphes/02-ParcoursEnLargeur.md
+    - file: release-jupytext/2-ParcoursDeGraphes/03-ParcoursEnProfondeur.md
+    - file: release-jupytext/2-ParcoursDeGraphes/04-Dijkstra.md
 
 
 

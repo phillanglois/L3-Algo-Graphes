@@ -17,13 +17,16 @@ kernelspec:
 +++
 
 Effectuez les fiches suivantes dans l'ordre, en cochant au fur et à mesure celles que vous aurez faites :
-- [ ] [00-Graph](00-Graph.md)
-- [ ] [01-ParcoursDeGraphe](01-ParcoursDeGraphe.md)
-- [ ] [02-ParcoursEnLargeur](02-ParcoursEnLargeur.md)
-- [ ] [03-ParcoursEnProfondeur](03-ParcoursEnProfondeur.md)
-- [ ] [04-Dijkstra](04-Dijkstra.md)
-- [ ] [05-Application](05-Applications.md)
-- [ ] [06-RushHour](06-RushHour.md)
+
+- [00-Graph](00-Graph.md)
+- [01-ParcoursDeGraphe](01-ParcoursDeGraphe.md)
+- [02-ParcoursEnLargeur](02-ParcoursEnLargeur.md)
+- [03-ParcoursEnProfondeur](03-ParcoursEnProfondeur.md)
+- [04-Dijkstra](04-Dijkstra.md)
+- [05-Application](05-Applications.md)
+- [06-RushHour](06-RushHour.md)
+
++++
 
 ## Mini rapport de TP
 
@@ -45,3 +48,7 @@ BEGIN SOLUTION
 END SOLUTION
 
 ### Notes et commentaires libres
+
+```{code-cell} ipython3
+
+```
