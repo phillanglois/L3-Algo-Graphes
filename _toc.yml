@@ -26,7 +26,7 @@ parts:
     - file: release-jupytext/2-ParcoursDeGraphes/02-ParcoursEnLargeur.md
     - file: release-jupytext/2-ParcoursDeGraphes/03-ParcoursEnProfondeur.md
     - file: release-jupytext/2-ParcoursDeGraphes/04-Dijkstra.md
-    - file: release-jupytext/2-ParcoursDeGraphes/05-Bellman-Ford.md
+    - file: release-jupytext/2-ParcoursDeGraphes/05-BellmanFord.md
     - file: release-jupytext/2-ParcoursDeGraphes/Rapport.md
 
 
