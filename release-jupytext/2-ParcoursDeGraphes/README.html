@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Thème 2 : Parcours de graphes &#8212; Algorithmique des graphes</title>
+    <title>1. Thème 2 : Parcours de graphes &#8212; Algorithmique des graphes</title>
   
   
   
@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Bibliothèque de graphes" href="00-Graph.html" />
+    <link rel="next" title="2. Bibliothèque de graphes" href="00-Graph.html" />
     <link rel="prev" title="6. Rapport de TP" href="../1-StructuresDeDonnees/Rapport.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -153,10 +153,6 @@
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -231,12 +227,14 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Thème 2 : Parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">8. Bibliothèque de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">2. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-ParcoursDeGraphe.html">3. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">4. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Dijkstra.html">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-BellmanFord.html">7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rapport.html">8. Rapport de TP</a></li>
 </ul>
 
     </div>
@@ -422,9 +420,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -440,20 +436,6 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-rapport-de-tp">7.1. Mini rapport de TP</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-quelques-mots-qu-avez-vous-appris">En quelques mots, qu’avez-vous appris?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quelles-difficultes-avez-vous-eventuellement-rencontrees">Quelles difficultés avez vous éventuellement rencontrées?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-avez-vous-aime-ou-moins-aime-dans-ce-tp">Qu’avez vous aimé ou moins aimé dans ce TP?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-et-commentaires-libres">Notes et commentaires libres</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -464,38 +446,17 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="theme-2-parcours-de-graphes">
-<h1><span class="section-number">7. </span>Thème 2 : Parcours de graphes<a class="headerlink" href="#theme-2-parcours-de-graphes" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Thème 2 : Parcours de graphes<a class="headerlink" href="#theme-2-parcours-de-graphes" title="Link to this heading">#</a></h1>
 <p>Effectuez les fiches suivantes dans l’ordre, en cochant au fur et à mesure celles que vous aurez faites :</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p><a class="reference internal" href="00-Graph.html"><span class="std std-doc">00-Graph</span></a></p></li>
 <li><p><a class="reference internal" href="01-ParcoursDeGraphe.html"><span class="std std-doc">01-ParcoursDeGraphe</span></a></p></li>
 <li><p><a class="reference internal" href="02-ParcoursEnLargeur.html"><span class="std std-doc">02-ParcoursEnLargeur</span></a></p></li>
 <li><p><a class="reference internal" href="03-ParcoursEnProfondeur.html"><span class="std std-doc">03-ParcoursEnProfondeur</span></a></p></li>
 <li><p><a class="reference internal" href="04-Dijkstra.html"><span class="std std-doc">04-Dijkstra</span></a></p></li>
-<li><p><a class="reference internal" href="#05-Applications.md"><span class="xref myst">05-Application</span></a></p></li>
+<li><p><a class="reference internal" href="#06-Bellman-Ford.md"><span class="xref myst">05-Application</span></a></p></li>
 <li><p><a class="reference internal" href="#06-RushHour.md"><span class="xref myst">06-RushHour</span></a></p></li>
-</ul>
-<section id="mini-rapport-de-tp">
-<h2><span class="section-number">7.1. </span>Mini rapport de TP<a class="headerlink" href="#mini-rapport-de-tp" title="Link to this heading">#</a></h2>
-<section id="en-quelques-mots-qu-avez-vous-appris">
-<h3>En quelques mots, qu’avez-vous appris?<a class="headerlink" href="#en-quelques-mots-qu-avez-vous-appris" title="Link to this heading">#</a></h3>
-<p>BEGIN SOLUTION
-END SOLUTION</p>
-</section>
-<section id="quelles-difficultes-avez-vous-eventuellement-rencontrees">
-<h3>Quelles difficultés avez vous éventuellement rencontrées?<a class="headerlink" href="#quelles-difficultes-avez-vous-eventuellement-rencontrees" title="Link to this heading">#</a></h3>
-<p>BEGIN SOLUTION
-END SOLUTION</p>
-</section>
-<section id="qu-avez-vous-aime-ou-moins-aime-dans-ce-tp">
-<h3>Qu’avez vous aimé ou moins aimé dans ce TP?<a class="headerlink" href="#qu-avez-vous-aime-ou-moins-aime-dans-ce-tp" title="Link to this heading">#</a></h3>
-<p>BEGIN SOLUTION
-END SOLUTION</p>
-</section>
-<section id="notes-et-commentaires-libres">
-<h3>Notes et commentaires libres<a class="headerlink" href="#notes-et-commentaires-libres" title="Link to this heading">#</a></h3>
-</section>
-</section>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -542,7 +503,7 @@ END SOLUTION</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Bibliothèque de graphes</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Bibliothèque de graphes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -552,29 +513,6 @@ END SOLUTION</p>
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-rapport-de-tp">7.1. Mini rapport de TP</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-quelques-mots-qu-avez-vous-appris">En quelques mots, qu’avez-vous appris?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quelles-difficultes-avez-vous-eventuellement-rencontrees">Quelles difficultés avez vous éventuellement rencontrées?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-avez-vous-aime-ou-moins-aime-dans-ce-tp">Qu’avez vous aimé ou moins aimé dans ce TP?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-et-commentaires-libres">Notes et commentaires libres</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

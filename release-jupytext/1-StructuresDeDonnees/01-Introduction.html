@@ -233,12 +233,14 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/README.html">7. Thème 2 : Parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/00-Graph.html">8. Bibliothèque de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/README.html">1. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/00-Graph.html">2. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">3. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">4. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/04-Dijkstra.html">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/05-BellmanFord.html">7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/Rapport.html">8. Rapport de TP</a></li>
 </ul>
 
     </div>
@@ -451,10 +453,10 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">3.1. Graphes: quelques définitions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">3.2. Graphes: variantes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">3.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">Liste d’arêtes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">Rappel: dictionnaires Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">Dictionnaire des voisins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">Dictionnaire d’arêtes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">3.3.1. Liste d’arêtes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">3.3.2. Rappel: dictionnaires Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">3.3.3. Dictionnaire des voisins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">3.3.4. Dictionnaire d’arêtes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">3.4. Matrice d’adjacence</a></li>
@@ -541,7 +543,7 @@ maintenant.</p>
 capacité <code class="docutils literal notranslate"><span class="pre">c</span></code> qui sera un nombre.</p>
 </div>
 <section id="liste-d-aretes">
-<h3>Liste d’arêtes<a class="headerlink" href="#liste-d-aretes" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>Liste d’arêtes<a class="headerlink" href="#liste-d-aretes" title="Link to this heading">#</a></h3>
 <p>Ici, on représentera un graphe par une liste de triplets <code class="docutils literal notranslate"><span class="pre">(v1,v2,c)</span></code>, chacun d’entre eux
 spécifiant qu’il y a une arête reliant <span class="math notranslate nohighlight">\(v_1\)</span> à <span class="math notranslate nohighlight">\(v_2\)</span> de capacité <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <p>Ci-dessous, nous donnons la structure de données <code class="docutils literal notranslate"><span class="pre">L0</span></code> d’un graphe <span class="math notranslate nohighlight">\(G_0\)</span> avec trois
@@ -586,7 +588,7 @@ vérifications dynamiques:</p>
 </div>
 </section>
 <section id="rappel-dictionnaires-python">
-<h3>Rappel: dictionnaires Python<a class="headerlink" href="#rappel-dictionnaires-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Rappel: dictionnaires Python<a class="headerlink" href="#rappel-dictionnaires-python" title="Link to this heading">#</a></h3>
 <p>Un <em>dictionnaire</em> en Python est une structure de donnée permettant d’associer à une
 valeur à une clé. Comme un dictionnnaire de français qui associe une définition à un mot,
 ou un annuaire qui associe un numéro de téléphone à une personne. Voici un dictionnaire
@@ -618,7 +620,7 @@ qui associe la valeur <code class="docutils literal notranslate"><span class="pr
 de taille <code class="docutils literal notranslate"><span class="pre">l</span></code> comme un dictionnaire associant des valeurs à des clés entre <code class="docutils literal notranslate"><span class="pre">0</span></code> et <code class="docutils literal notranslate"><span class="pre">l-1</span></code></p>
 </section>
 <section id="dictionnaire-des-voisins">
-<h3>Dictionnaire des voisins<a class="headerlink" href="#dictionnaire-des-voisins" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>Dictionnaire des voisins<a class="headerlink" href="#dictionnaire-des-voisins" title="Link to this heading">#</a></h3>
 <p>Un sommet <span class="math notranslate nohighlight">\(v_2\)</span> est un voisin sortant d’un sommet <span class="math notranslate nohighlight">\(v_1\)</span> s’il y a une arête reliant <span class="math notranslate nohighlight">\(v_1\)</span>
 à <span class="math notranslate nohighlight">\(v_2\)</span>.</p>
 <p>On peut représenter un graphe à l’aide d’un <em><strong>dictionnaire des voisins</strong></em> qui à chaque
@@ -668,7 +670,7 @@ lieu d’un dictionnaire :</p>
 </div>
 </section>
 <section id="dictionnaire-d-aretes">
-<h3>Dictionnaire d’arêtes<a class="headerlink" href="#dictionnaire-d-aretes" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.4. </span>Dictionnaire d’arêtes<a class="headerlink" href="#dictionnaire-d-aretes" title="Link to this heading">#</a></h3>
 <p>Utilisons maintenant un <em><strong>dictionnaire d’arêtes</strong></em> pour représenter <code class="docutils literal notranslate"><span class="pre">G_1</span></code> : il associera
 à chaque paire <code class="docutils literal notranslate"><span class="pre">(u1,v1)</span></code> reliés par une arête la capacité de cette arrête.</p>
 <p>Voici le dictionnaire pour <span class="math notranslate nohighlight">\(G_0\)</span>:</p>
@@ -824,10 +826,10 @@ vous pouvez passer à la feuille suivante.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-quelques-definitions">3.1. Graphes: quelques définitions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes-variantes">3.2. Graphes: variantes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-structures-de-donnees-pour-les-graphes">3.3. Quelques structures de données pour les graphes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">Liste d’arêtes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">Rappel: dictionnaires Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">Dictionnaire des voisins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">Dictionnaire d’arêtes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-d-aretes">3.3.1. Liste d’arêtes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rappel-dictionnaires-python">3.3.2. Rappel: dictionnaires Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-des-voisins">3.3.3. Dictionnaire des voisins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionnaire-d-aretes">3.3.4. Dictionnaire d’arêtes</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrice-d-adjacence">3.4. Matrice d’adjacence</a></li>

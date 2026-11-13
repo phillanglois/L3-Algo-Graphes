@@ -12,7 +12,7 @@ kernelspec:
 
 +++ {"deletable": false, "editable": false}
 
-# Plus courts chemins, avec poids: l'[algorithme de Dijkstra](https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra)
+# Plus courts chemins, avec poids positifs: l'[algorithme de Dijkstra](https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra)
 
 +++ {"deletable": false, "editable": false}
 
@@ -58,7 +58,7 @@ On souhaite calculer le plus court chemin entre deux sommets de ce graphe.
 
 :::{admonition} Exercice, suite
 
-3.  Déduisez en la distance entre `A` et `J`, à mettre dans la
+3.  Déduisez en la distance entière entre `A` et `J`, à mettre dans la
     variable `distance_AJ`:
 
 :::
@@ -153,6 +153,10 @@ assert sum(distances.values()) == 2774
 # Vérifie votre résultat sans dévoiler la solution, par la magie des fonctions de hachage :-)
 import hashlib
 assert hashlib.md5(bytes(int(distance))).hexdigest() == '47699f4b69b37670eb6ce45276ad9a30'
+```
+
+```{code-cell} ipython3
+
 ```
 
 ```{code-cell} ipython3

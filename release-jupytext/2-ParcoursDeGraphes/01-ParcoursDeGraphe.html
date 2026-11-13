@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9. Étude d’un algorithme de parcours de graphes &#8212; Algorithmique des graphes</title>
+    <title>3. Étude d’un algorithme de parcours de graphes &#8212; Algorithmique des graphes</title>
   
   
   
@@ -66,8 +66,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Parcours en largeur et calcul de distances" href="02-ParcoursEnLargeur.html" />
-    <link rel="prev" title="8. Bibliothèque de graphes" href="00-Graph.html" />
+    <link rel="next" title="4. Parcours en largeur et calcul de distances" href="02-ParcoursEnLargeur.html" />
+    <link rel="prev" title="2. Bibliothèque de graphes" href="00-Graph.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -233,12 +233,14 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="README.html">7. Thème 2 : Parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">8. Bibliothèque de graphes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Étude d’un algorithme de parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04-Dijkstra.html">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">2. Bibliothèque de graphes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">4. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Dijkstra.html">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-BellmanFord.html">7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rapport.html">8. Rapport de TP</a></li>
 </ul>
 
     </div>
@@ -447,12 +449,12 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-algorithme">9.1. L’algorithme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etude-sur-un-exemple">9.2. Étude sur un exemple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">9.3. Tests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation">9.4. Visualisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-theorique-et-invariants">9.5. Analyse théorique et invariants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9.6. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-algorithme">3.1. L’algorithme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etude-sur-un-exemple">3.2. Étude sur un exemple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3.3. Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation">3.4. Visualisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-theorique-et-invariants">3.5. Analyse théorique et invariants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.6. Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -465,7 +467,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="etude-d-un-algorithme-de-parcours-de-graphes">
-<h1><span class="section-number">9. </span>Étude d’un algorithme de parcours de graphes<a class="headerlink" href="#etude-d-un-algorithme-de-parcours-de-graphes" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Étude d’un algorithme de parcours de graphes<a class="headerlink" href="#etude-d-un-algorithme-de-parcours-de-graphes" title="Link to this heading">#</a></h1>
 <div class="admonition-definitions admonition">
 <p class="admonition-title">Définitions</p>
 <p>Soit <span class="math notranslate nohighlight">\(G\)</span> un graphe.</p>
@@ -476,7 +478,7 @@
 </ul>
 </div>
 <section id="l-algorithme">
-<h2><span class="section-number">9.1. </span>L’algorithme<a class="headerlink" href="#l-algorithme" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>L’algorithme<a class="headerlink" href="#l-algorithme" title="Link to this heading">#</a></h2>
 <p>L’objectif de cette feuille est d’étudier l’algorithme suivant :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -509,7 +511,7 @@
 </div>
 </section>
 <section id="etude-sur-un-exemple">
-<h2><span class="section-number">9.2. </span>Étude sur un exemple<a class="headerlink" href="#etude-sur-un-exemple" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Étude sur un exemple<a class="headerlink" href="#etude-sur-un-exemple" title="Link to this heading">#</a></h2>
 <p>Nous allons commencer par étudier le comportement de cet algorithme sur le graphe suivant :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,7 +542,7 @@
 </div>
 </section>
 <section id="tests">
-<h2><span class="section-number">9.3. </span>Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">cours_1_reseau</span><span class="p">()</span>
@@ -575,7 +577,7 @@
 </div>
 </section>
 <section id="visualisation">
-<h2><span class="section-number">9.4. </span>Visualisation<a class="headerlink" href="#visualisation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Visualisation<a class="headerlink" href="#visualisation" title="Link to this heading">#</a></h2>
 <p>Nous allons maintenant visualiser l’exécution de notre algorithme. Pour cela, nous allons:</p>
 <ol class="arabic simple">
 <li><p>Instrumenter le code en insérant des observations des variables locales aux endroits clé (comme lorsque l’on débogue avec <code class="docutils literal notranslate"><span class="pre">print</span></code>)/</p></li>
@@ -657,7 +659,7 @@
 </div>
 </section>
 <section id="analyse-theorique-et-invariants">
-<h2><span class="section-number">9.5. </span>Analyse théorique et invariants<a class="headerlink" href="#analyse-theorique-et-invariants" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Analyse théorique et invariants<a class="headerlink" href="#analyse-theorique-et-invariants" title="Link to this heading">#</a></h2>
 <div class="admonition-exercice-complexite admonition">
 <p class="admonition-title">Exercice: Complexité</p>
 <p>Majorez la complexité de votre implantation de l’algorithme. Pour cela:</p>
@@ -684,7 +686,7 @@ fois chaque arête est manipulée.</p></li>
 </div>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">9.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>Dans cette feuille, nous avons étudié un algorithme au moyen de deux outils :</p>
 <ul class="simple">
 <li><p>L’instrumentation du code pour observer visuellement son exécution.</p></li>
@@ -767,7 +769,7 @@ largeur</span></a>.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Bibliothèque de graphes</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Bibliothèque de graphes</p>
       </div>
     </a>
     <a class="right-next"
@@ -775,7 +777,7 @@ largeur</span></a>.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Parcours en largeur et calcul de distances</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Parcours en largeur et calcul de distances</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -797,12 +799,12 @@ largeur</span></a>.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-algorithme">9.1. L’algorithme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etude-sur-un-exemple">9.2. Étude sur un exemple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">9.3. Tests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation">9.4. Visualisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-theorique-et-invariants">9.5. Analyse théorique et invariants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9.6. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-algorithme">3.1. L’algorithme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etude-sur-un-exemple">3.2. Étude sur un exemple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3.3. Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation">3.4. Visualisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-theorique-et-invariants">3.5. Analyse théorique et invariants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.6. Conclusion</a></li>
 </ul>
   </nav></div>
 

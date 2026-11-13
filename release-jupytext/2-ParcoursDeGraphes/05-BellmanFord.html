@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford &#8212; Algorithmique des graphes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'release-jupytext/2-ParcoursDeGraphes/05-BellmanFord';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8. Rapport de TP" href="Rapport.html" />
+    <link rel="prev" title="6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra" href="04-Dijkstra.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/graphe.png" class="logo__image only-light" alt="Algorithmique des graphes - Home"/>
+    <img src="../../_static/graphe.png" class="logo__image only-dark pst-js-only" alt="Algorithmique des graphes - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1-StructuresDeDonnees</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/README.html">1. Thème 1: Structures de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/00-PriseEnMain.html">2. Prise en main de l’environnement de travail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/01-Introduction.html">3. Introduction aux graphes et leurs structures de données</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/02-Comprehensions.html">4. Listes en compréhension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/03-Implantation.html">5. Implantation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/Rapport.html">6. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">2. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-ParcoursDeGraphe.html">3. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">4. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Dijkstra.html">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rapport.html">8. Rapport de TP</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/phillanglois/L3-AlgoGraphes/main?urlpath=tree/release-jupytext/2-ParcoursDeGraphes/05-BellmanFord.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/phillanglois/L3-AlgoGraphes/issues/new?title=Issue%20on%20page%20%2Frelease-jupytext/2-ParcoursDeGraphes/05-BellmanFord.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/2-ParcoursDeGraphes/05-BellmanFord.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/2-ParcoursDeGraphes/05-BellmanFord.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="plus-courts-chemins-avec-poids-de-signe-quelconque-l-algorithme-de-bellman-ford">
+<h1><span class="section-number">7. </span>Plus courts chemins, avec poids de signe quelconque : l’<a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Bellman-Ford">algorithme de Bellman-Ford</a><a class="headerlink" href="#plus-courts-chemins-avec-poids-de-signe-quelconque-l-algorithme-de-bellman-ford" title="Link to this heading">#</a></h1>
+<p>On a vu en cours l’algorithme de Bellman-Ford qui applique le principe de programmation dynamique au calcul des plus courts chemins d’une source donnée aux sommets d’un graphe avec poids positifs et négatifs. On rappelle que la validité de cette solution impose l’absence dans le graphe de cycle de poids total négatif.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<ol class="arabic simple">
+<li><p>Ecrire dans un fichier python, la fonction <code class="docutils literal notranslate"><span class="pre">bellman_ford</span></code> décrite dans la cellule suivante.</p></li>
+<li><p>Vérifier votre algorithme avec l’exemple résolu en cours.</p></li>
+<li><p>Instrumenter votre code pour vérifier chaque itération de cette résolution. La vérifier par rapport à l’exemple du cours.</p></li>
+<li><p>Appliquez cette fonction au graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> ci-dessous – déjà traité avec l’algorithme de Dijkstra.</p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">Node</span>
+
+<span class="n">infinity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bellman_ford</span><span class="p">(</span>
+    <span class="n">G</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">e</span><span class="p">:</span> <span class="n">Node</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Node</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Node</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Node</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Applique l'algorithme de Bellman-Ford à G en partant de e.</span>
+
+<span class="sd">    Renvoie :</span>
+<span class="sd">      - un dictionnaire associant à chaque sommet sa distance depuis e ;</span>
+<span class="sd">      - un dictionnaire associant à chaque sommet v un autre sommet</span>
+<span class="sd">        d'où vient l'un des chemins les plus courts de e à v.</span>
+
+<span class="sd">    Les distances des sommets non accessibles depuis e valent inf.</span>
+
+<span class="sd">    Lève ValueError si un circuit de poids strictement négatif</span>
+<span class="sd">    est accessible depuis e.</span>
+<span class="sd">    """</span>
+    
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">e</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Le sommet de départ n'appartient pas au graphe."</span><span class="p">)</span>
+
+    <span class="c1"># Initialisation</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">}</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">}</span>
+
+    <span class="n">dist</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Phase de relaxation : au plus n-1 itérations</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">changement</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="c1"># On examine les arêtes entrantes dans v</span>
+            <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+
+                <span class="n">poids</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">capacity</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+                <span class="c1"># Relaxation de l'arête (u, v)</span>
+                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="ow">and</span> \
+                   <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">poids</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+
+                    <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">poids</span>
+                    <span class="n">pred</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
+                    <span class="n">changement</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># Arrêt anticipé si aucune distance n'a été modifiée</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">changement</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="c1"># Détection d'un circuit de poids négatif accessible depuis e</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+
+            <span class="n">poids</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">capacity</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="ow">and</span> \
+               <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">poids</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">"Le graphe contient un circuit de poids négatif "</span>
+                    <span class="s2">"accessible depuis le sommet de départ."</span>
+                <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dist</span><span class="p">,</span> <span class="n">pred</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comme précédemment, on considère le graphe suivant qui modélise un réseau routier :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">examples</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dijkstra</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">dijkstra</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On souhaite calculer le plus court chemin entre deux sommets de ce graphe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice-suite admonition">
+<p class="admonition-title">Exercice, suite</p>
+<ol class="arabic simple" start="3">
+<li><p>Déduisez en la distance entre <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">J</span></code>, à mettre dans la
+variable <code class="docutils literal notranslate"><span class="pre">distance_AJ</span></code>:</p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vérifie votre résultat sans dévoiler la solution, par la magie des fonctions de hachage :-)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="k">assert</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">distance_AJ</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'2f6064003b888e403627e493532fc751'</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">distances</span> <span class="o">=</span> <span class="n">bellman_ford</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">distances</span><span class="p">[</span><span class="s2">"A"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distances</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2774</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice-fin admonition">
+<p class="admonition-title">Exercice, fin</p>
+<ol class="arabic simple" start="4">
+<li><p>Ecrire une nouvelle version de la fonction <code class="docutils literal notranslate"><span class="pre">shortest_path</span></code> qui retourne le plus court chemin entre deux noeuds <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code>, cette fois  calculé par <code class="docutils literal notranslate"><span class="pre">bellman-ford</span></code>.</p></li>
+<li><p>L’utiliser pour calculer un plus court chemin entre <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">J</span></code> dans <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-probleme-1-le-retour-du-trajet-le-plus-rapide-en-metro-de-montgallet-a-billancourt admonition">
+<p class="admonition-title">Problème 1 : le retour du trajet le plus rapide en métro de Montgallet à Billancourt ?</p>
+<center>
+<a class="reference internal image-reference" href="release-jupytext/media/metro-paris.gif"><img alt="Le plan du métro de Paris" src="release-jupytext/media/metro-paris.gif" style="width: 50%;" />
+</a>
+</center>
+<p>Reprenez les développements du notebook précédent et
+utilisez la fonction <code class="docutils literal notranslate"><span class="pre">bellman_ford</span></code> retrouver un plus court chemin de Montgallet à Billancourt! Vous stockerez encore la longueur de ce chemin dans dans la variable <code class="docutils literal notranslate"><span class="pre">distance</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vérifie votre résultat sans dévoiler la solution, par la magie des fonctions de hachage :-)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="k">assert</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">distance</span><span class="p">)))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'47699f4b69b37670eb6ce45276ad9a30'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./release-jupytext/2-ParcoursDeGraphes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04-Dijkstra.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Rapport.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Rapport de TP</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florent Hivert, Viviane Pons, Nicolas M. Thiéry, Ph. Langlois
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

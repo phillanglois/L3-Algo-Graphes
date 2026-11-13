@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Plus courts chemins, avec poids: l’algorithme de Dijkstra &#8212; Algorithmique des graphes</title>
+    <title>6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra &#8212; Algorithmique des graphes</title>
   
   
   
@@ -64,7 +64,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="11. Parcours en profondeur" href="03-ParcoursEnProfondeur.html" />
+    <link rel="next" title="7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford" href="05-BellmanFord.html" />
+    <link rel="prev" title="5. Parcours en profondeur" href="03-ParcoursEnProfondeur.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -226,12 +227,14 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="README.html">7. Thème 2 : Parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">8. Bibliothèque de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01-ParcoursDeGraphe.html">9. Étude d’un algorithme de parcours de graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">10. Parcours en largeur et calcul de distances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">11. Parcours en profondeur</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Plus courts chemins, avec poids: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00-Graph.html">2. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-ParcoursDeGraphe.html">3. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-ParcoursEnLargeur.html">4. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-BellmanFord.html">7. Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rapport.html">8. Rapport de TP</a></li>
 </ul>
 
     </div>
@@ -428,7 +431,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Plus courts chemins, avec poids: l’algorithme de Dijkstra</h1>
+    <h1>Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -442,8 +445,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="plus-courts-chemins-avec-poids-l-algorithme-de-dijkstra">
-<h1><span class="section-number">12. </span>Plus courts chemins, avec poids: l’<a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">algorithme de Dijkstra</a><a class="headerlink" href="#plus-courts-chemins-avec-poids-l-algorithme-de-dijkstra" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="plus-courts-chemins-avec-poids-positifs-l-algorithme-de-dijkstra">
+<h1><span class="section-number">6. </span>Plus courts chemins, avec poids positifs: l’<a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">algorithme de Dijkstra</a><a class="headerlink" href="#plus-courts-chemins-avec-poids-positifs-l-algorithme-de-dijkstra" title="Link to this heading">#</a></h1>
 <p>On considère le graphe suivant qui modélise un réseau routier :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -481,7 +484,7 @@
 <div class="admonition-exercice-suite admonition">
 <p class="admonition-title">Exercice, suite</p>
 <ol class="arabic simple" start="3">
-<li><p>Déduisez en la distance entre <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">J</span></code>, à mettre dans la
+<li><p>Déduisez en la distance entière entre <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">J</span></code>, à mettre dans la
 variable <code class="docutils literal notranslate"><span class="pre">distance_AJ</span></code>:</p></li>
 </ol>
 </div>
@@ -608,8 +611,17 @@ variable <code class="docutils literal notranslate"><span class="pre">distance_A
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Parcours en profondeur</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Parcours en profondeur</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="05-BellmanFord.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Plus courts chemins, avec poids de signe quelconque : l’algorithme de Bellman-Ford</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
