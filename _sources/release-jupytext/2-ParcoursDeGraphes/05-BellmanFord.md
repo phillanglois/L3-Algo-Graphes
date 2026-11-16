@@ -16,7 +16,8 @@ kernelspec:
 
 +++
 
-On a vu en cours l'algorithme de Bellman-Ford qui applique le principe de programmation dynamique au calcul des plus courts chemins d'une source donnée aux sommets d'un graphe avec poids positifs et négatifs. On rappelle que la validité de cette solution impose l'absence dans le graphe de cycle de poids total négatif.
+L'_algorithme de Bellman-Ford_ applique le principe de programmation dynamique au calcul des plus courts chemins d'une source donnée aux sommets d'un graphe avec poids positifs et négatifs. 
+On rappelle que la validité de cette solution impose l'absence dans le graphe de cycle de poids total négatif.
 
 +++ {"deletable": false, "editable": false}
 
@@ -52,58 +53,7 @@ def bellman_ford(
     Lève ValueError si un circuit de poids strictement négatif
     est accessible depuis e.
     """
-    
-    ### BEGIN SOLUTION
-    nodes = G.nodes()
-    n = len(nodes)
-
-    if e not in nodes:
-        raise ValueError("Le sommet de départ n'appartient pas au graphe.")
-
-    # Initialisation
-    dist = {v: float('inf') for v in nodes}
-    pred = {v: None for v in nodes}
-
-    dist[e] = 0.0
-
-    # Phase de relaxation : au plus n-1 itérations
-    for _ in range(n - 1):
-        changement = False
-
-        for v in nodes:
-            # On examine les arêtes entrantes dans v
-            for u in G.predecessors(v):
-
-                poids = G.capacity(u, v)
-
-                # Relaxation de l'arête (u, v)
-                if dist[u] != float('inf') and \
-                   dist[u] + poids < dist[v]:
-
-                    dist[v] = dist[u] + poids
-                    pred[v] = u
-                    changement = True
-
-        # Arrêt anticipé si aucune distance n'a été modifiée
-        if not changement:
-            break
-
-    # Détection d'un circuit de poids négatif accessible depuis e
-    for v in nodes:
-        for u in G.predecessors(v):
-
-            poids = G.capacity(u, v)
-
-            if dist[u] != float('inf') and \
-               dist[u] + poids < dist[v]:
-
-                raise ValueError(
-                    "Le graphe contient un circuit de poids négatif "
-                    "accessible depuis le sommet de départ."
-                )
-
-    return dist, pred
-    ### END SOLUTION
+# REPLACE THIS WHOLE LINE BY YOUR CODE
 ```
 
 +++ {"deletable": false, "editable": false}

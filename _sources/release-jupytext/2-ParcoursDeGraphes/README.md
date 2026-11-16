@@ -16,12 +16,13 @@ kernelspec:
 
 +++
 
-Effectuez les fiches suivantes dans l'ordre, en cochant au fur et à mesure celles que vous aurez faites :
+Effectuez les fiches suivantes dans l'ordre :
 
 1. [00-Graph](00-Graph.md)
 2. [01-ParcoursDeGraphe](01-ParcoursDeGraphe.md)
 3. [02-ParcoursEnLargeur](02-ParcoursEnLargeur.md)
 4. [03-ParcoursEnProfondeur](03-ParcoursEnProfondeur.md)
 5. [04-Dijkstra](04-Dijkstra.md)
-6. [05-Application](06-Bellman-Ford.md)
-7. [06-RushHour](06-RushHour.md)
+6. [05-Bellman-Ford](05-BellmanFord.md)
+
+Cette liste est complétée en cours de semestre.

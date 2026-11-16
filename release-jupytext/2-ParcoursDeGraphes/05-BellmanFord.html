@@ -447,7 +447,8 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plus-courts-chemins-avec-poids-de-signe-quelconque-l-algorithme-de-bellman-ford">
 <h1><span class="section-number">7. </span>Plus courts chemins, avec poids de signe quelconque : l’<a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Bellman-Ford">algorithme de Bellman-Ford</a><a class="headerlink" href="#plus-courts-chemins-avec-poids-de-signe-quelconque-l-algorithme-de-bellman-ford" title="Link to this heading">#</a></h1>
-<p>On a vu en cours l’algorithme de Bellman-Ford qui applique le principe de programmation dynamique au calcul des plus courts chemins d’une source donnée aux sommets d’un graphe avec poids positifs et négatifs. On rappelle que la validité de cette solution impose l’absence dans le graphe de cycle de poids total négatif.</p>
+<p>L’<em>algorithme de Bellman-Ford</em> applique le principe de programmation dynamique au calcul des plus courts chemins d’une source donnée aux sommets d’un graphe avec poids positifs et négatifs.
+On rappelle que la validité de cette solution impose l’absence dans le graphe de cycle de poids total négatif.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <ol class="arabic simple">
@@ -481,58 +482,7 @@
 <span class="sd">    Lève ValueError si un circuit de poids strictement négatif</span>
 <span class="sd">    est accessible depuis e.</span>
 <span class="sd">    """</span>
-    
-    <span class="c1">### BEGIN SOLUTION</span>
-    <span class="n">nodes</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">e</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Le sommet de départ n'appartient pas au graphe."</span><span class="p">)</span>
-
-    <span class="c1"># Initialisation</span>
-    <span class="n">dist</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">}</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">}</span>
-
-    <span class="n">dist</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-
-    <span class="c1"># Phase de relaxation : au plus n-1 itérations</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">changement</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
-            <span class="c1"># On examine les arêtes entrantes dans v</span>
-            <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-
-                <span class="n">poids</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">capacity</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-
-                <span class="c1"># Relaxation de l'arête (u, v)</span>
-                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="ow">and</span> \
-                   <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">poids</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
-
-                    <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">poids</span>
-                    <span class="n">pred</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
-                    <span class="n">changement</span> <span class="o">=</span> <span class="kc">True</span>
-
-        <span class="c1"># Arrêt anticipé si aucune distance n'a été modifiée</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">changement</span><span class="p">:</span>
-            <span class="k">break</span>
-
-    <span class="c1"># Détection d'un circuit de poids négatif accessible depuis e</span>
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-
-            <span class="n">poids</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">capacity</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span> <span class="ow">and</span> \
-               <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">poids</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
-
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">"Le graphe contient un circuit de poids négatif "</span>
-                    <span class="s2">"accessible depuis le sommet de départ."</span>
-                <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">dist</span><span class="p">,</span> <span class="n">pred</span>
-    <span class="c1">### END SOLUTION</span>
+<span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
 </pre></div>
 </div>
 </div>
