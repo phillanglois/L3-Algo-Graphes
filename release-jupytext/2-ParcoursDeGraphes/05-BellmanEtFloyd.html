@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Rapport de TP" href="Rapport.html" />
+    <link rel="next" title="8. Problème 2: Rush Hour" href="06-RushHour.html" />
     <link rel="prev" title="6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra" href="04-Dijkstra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -238,7 +238,8 @@
 <li class="toctree-l1"><a class="reference internal" href="03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-Dijkstra.html">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Plus courts chemins, avec poids de signe quelconque : algorithmes de Bellman-Ford et de Floyd-Warshall</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Rapport.html">8. Rapport de TP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-RushHour.html">8. Problème 2: Rush Hour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rapport.html">9. Rapport de TP</a></li>
 </ul>
 
     </div>
@@ -448,11 +449,13 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-bellman-ford">7.1. <span class="xref myst">Algorithme de Bellman-Ford</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-seconde">7.1.1. Le métro parisien : seconde !</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-et-premieres-verifications">7.1.1. Algorithme et premières vérifications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-seconde">7.1.2. Le métro parisien : seconde !</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-floyd-warshall">7.2. Algorithme de Floyd-Warshall</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-troisieme">7.2.1. Le métro parisien : troisième !</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.2.1. Algorithme et premières vérifications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-troisieme">7.2.2. Le métro parisien : troisième !</a></li>
 </ul>
 </li>
 </ul>
@@ -488,6 +491,8 @@
 <h2><span class="section-number">7.1. </span><a class="reference internal" href="#(https://fr.wikipedia.org/wiki/Algorithme_de_Bellman-Ford)"><span class="xref myst">Algorithme de Bellman-Ford</span></a><a class="headerlink" href="#algorithme-de-bellman-ford" title="Link to this heading">#</a></h2>
 <p>Soit donc un PCC d’une source donnée vers tous les sommets.
 Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
+<section id="algorithme-et-premieres-verifications">
+<h3><span class="section-number">7.1.1. </span>Algorithme et premières vérifications<a class="headerlink" href="#algorithme-et-premieres-verifications" title="Link to this heading">#</a></h3>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <ol class="arabic simple">
@@ -522,15 +527,9 @@ Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shortest_path</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Node</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">],</span> <span class="nb">float</span><span class="p">]:</span>
-    <span class="s2">"Bellman-Ford pour renvoyer un plus court chemin de `u` à `v`, ainsi que sa longueur"</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span> <span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
-</pre></div>
-</div>
-</div>
-</div>
+<ol class="arabic simple" start="2">
+<li><p>On vérifie avec l’exemple du cours.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
@@ -552,8 +551,41 @@ Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
 </div>
 </div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p>On détaille l’exécution de l’exemple vu en cours en instrumentant les principales étapes de l’algorithme .</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>On écrit un nouvelle version de la fonction <code class="docutils literal notranslate"><span class="pre">shortest_path</span></code> qui retourne un plus court chemin entre deux noeuds <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code>, cette fois  calculé par <code class="docutils literal notranslate"><span class="pre">bellman-ford</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shortest_path</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Node</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Node</span><span class="p">],</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="s2">"Bellman-Ford pour renvoyer un plus court chemin de `u` à `v`, ainsi que sa longueur"</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span> <span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Applications à l’exemple du cours.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># REPLACE THIS WHOLE LINE BY YOUR CODE</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="le-metro-parisien-seconde">
-<h3><span class="section-number">7.1.1. </span>Le métro parisien : seconde !<a class="headerlink" href="#le-metro-parisien-seconde" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.1.2. </span>Le métro parisien : seconde !<a class="headerlink" href="#le-metro-parisien-seconde" title="Link to this heading">#</a></h3>
 <div class="admonition-probleme-1-le-retour-du-trajet-le-plus-rapide-en-metro-de-montgallet-a-billancourt admonition">
 <p class="admonition-title">Problème 1 : le retour du trajet le plus rapide en métro de Montgallet à Billancourt ?</p>
 <center>
@@ -597,6 +629,8 @@ utilisez la fonction <code class="docutils literal notranslate"><span class="pre
 <h2><span class="section-number">7.2. </span><a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall">Algorithme de Floyd-Warshall</a><a class="headerlink" href="#algorithme-de-floyd-warshall" title="Link to this heading">#</a></h2>
 <p>Soit donc des PCC de toute paire de sommets d’un graphe.
 Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
+<section id="id1">
+<h3><span class="section-number">7.2.1. </span>Algorithme et premières vérifications<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <ol class="arabic simple">
@@ -651,7 +685,7 @@ Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Application</p></li>
+<li><p>Application au plus court chemin entre <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">J</span></code> pour <code class="docutils literal notranslate"><span class="pre">G</span></code>, le graphe de la section précédente (Bellman-Ford).</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,8 +694,9 @@ Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
 </div>
 </div>
 </div>
+</section>
 <section id="le-metro-parisien-troisieme">
-<h3><span class="section-number">7.2.1. </span>Le métro parisien : troisième !<a class="headerlink" href="#le-metro-parisien-troisieme" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.2.2. </span>Le métro parisien : troisième !<a class="headerlink" href="#le-metro-parisien-troisieme" title="Link to this heading">#</a></h3>
 <p>Reprendre l’exercice du métro parisien avec cette approche.</p>
 <ul class="simple">
 <li><p>Quelle est la taille des résultats calculés par cette approche ?</p></li>
@@ -720,11 +755,11 @@ Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
       </div>
     </a>
     <a class="right-next"
-       href="Rapport.html"
+       href="06-RushHour.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Rapport de TP</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Problème 2: Rush Hour</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -747,11 +782,13 @@ Se référer si besoin à la page wikipedia dans le titre de cette section.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-bellman-ford">7.1. <span class="xref myst">Algorithme de Bellman-Ford</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-seconde">7.1.1. Le métro parisien : seconde !</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-et-premieres-verifications">7.1.1. Algorithme et premières vérifications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-seconde">7.1.2. Le métro parisien : seconde !</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-floyd-warshall">7.2. Algorithme de Floyd-Warshall</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-troisieme">7.2.1. Le métro parisien : troisième !</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.2.1. Algorithme et premières vérifications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-metro-parisien-troisieme">7.2.2. Le métro parisien : troisième !</a></li>
 </ul>
 </li>
 </ul>

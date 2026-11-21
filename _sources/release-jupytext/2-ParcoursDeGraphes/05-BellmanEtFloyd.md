@@ -39,6 +39,11 @@ infinity = float("inf")
 Soit donc un PCC d'une source donnée vers tous les sommets. 
 Se référer si besoin à la page wikipedia dans le titre de cette section.
 
++++ {"deletable": false, "editable": false}
+
+### Algorithme et premières vérifications
+
++++
 
 :::{admonition} Exercice
 
@@ -73,14 +78,9 @@ def bellman_ford(
     raise NotImplementedError() # REPLACE THIS WHOLE LINE BY YOUR CODE
 ```
 
-```{code-cell} ipython3
-:deletable: false
-:editable: true
++++ {"deletable": false, "editable": false}
 
-def shortest_path(graph: Graph, u: Node, v: Node) -> Tuple[list[Node], float]:
-    "Bellman-Ford pour renvoyer un plus court chemin de `u` à `v`, ainsi que sa longueur"
-    raise NotImplementedError() # REPLACE THIS WHOLE LINE BY YOUR CODE
-```
+2. On vérifie avec l'exemple du cours.
 
 ```{code-cell} ipython3
 :deletable: false
@@ -99,6 +99,41 @@ import hashlib
 
 G = examples.grandcolas_bf()
 G.show()
+
+# REPLACE THIS WHOLE LINE BY YOUR CODE
+```
+
++++ {"deletable": false, "editable": false}
+
+3. On détaille l'exécution de l'exemple vu en cours en instrumentant les principales étapes de l'algorithme .
+
+```{code-cell} ipython3
+:deletable: false
+:editable: true
+
+# REPLACE THIS WHOLE LINE BY YOUR CODE
+```
+
++++ {"deletable": false, "editable": false}
+
+4. On écrit un nouvelle version de la fonction `shortest_path` qui retourne un plus court chemin entre deux noeuds `u` et `v`, cette fois  calculé par `bellman-ford`.
+
+```{code-cell} ipython3
+:deletable: false
+:editable: true
+
+def shortest_path(graph: Graph, u: Node, v: Node) -> Tuple[list[Node], float]:
+    "Bellman-Ford pour renvoyer un plus court chemin de `u` à `v`, ainsi que sa longueur"
+    raise NotImplementedError() # REPLACE THIS WHOLE LINE BY YOUR CODE
+```
+
++++ {"deletable": false, "editable": false}
+
+1. Applications à l'exemple du cours.
+
+```{code-cell} ipython3
+:deletable: false
+:editable: true
 
 # REPLACE THIS WHOLE LINE BY YOUR CODE
 ```
@@ -155,9 +190,12 @@ utilisez la fonction `bellman_ford` retrouver un plus court chemin de Montgallet
 
 ## [Algorithme de Floyd-Warshall](https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall)
 
-
 Soit donc des PCC de toute paire de sommets d'un graphe.
 Se référer si besoin à la page wikipedia dans le titre de cette section.
+
+### Algorithme et premières vérifications
+
++++
 
 :::{admonition} Exercice
 
@@ -215,7 +253,7 @@ def shortest_path(graph: Graph, u: Node, v: Node) -> Tuple[list[Node], float]:
 
 +++ {"deletable": false, "editable": false}
 
-4. Application
+4. Application au plus court chemin entre `A` et `J` pour `G`, le graphe de la section précédente (Bellman-Ford).
 
 ```{code-cell} ipython3
 :deletable: false
