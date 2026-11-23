@@ -1,7 +1,7 @@
 from typing import Any, Callable, List
 
+# type
 Graph = Any
-
 
 class Examples:
     """
@@ -105,6 +105,7 @@ class Examples:
                 (H, J, 167),
                 (I, J, 84),
             ],
+            directed=False,
         )
 
     def cours_2_reseau(self) -> Graph:
@@ -124,7 +125,7 @@ class Examples:
                 (5, 6, 4),
                 (6, 3, 3),
             ],
-            directed=True,
+            directed=True
         )
 
     def directed(self) -> Graph:
@@ -151,3 +152,46 @@ class Examples:
             self.disconnected(),
             self.dijkstra(),
         ]
+
+    def grandcolas(self) -> Graph:
+        # exemple Grandcolas pour Dijkstra - PhL 
+        s, x, u, v, t, w = nodes = list("sxuvtw")
+        return self.Graph(
+            nodes, 
+            edges=[
+                (s, x, 2),
+                (s, u, 3),
+                (x, s, 7),
+                (x, u, 8),
+                (x, v, 1),
+                (u, s, 12),
+                (u, t, 1),
+                (v, u, 4),
+                (v, t, 10),
+                (v, w, 13),
+                (t, u, 5),
+                (t, v, 9),
+                (t, w, 2),
+            ],
+            directed=True
+        )
+
+    def grandcolas_bf(self) -> Graph:
+        # exemple Grandcolas pour Bellman-Ford - PhL 
+        s, a, b, c, d, e = nodes = list("sabcde")
+        return self.Graph(
+            nodes, 
+            edges=[
+                (s, a, -3),
+                (s, c, 3),
+                (s, d, 4),
+                (s, e, 2),
+                (a, d, 9),
+                (b, a, -4),
+                (b, c, 8),
+                (c, e, -3),
+                (d, b, -1),
+                (e, b, -2),
+            ], 
+            directed=True
+        )
