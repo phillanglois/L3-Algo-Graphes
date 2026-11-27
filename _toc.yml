@@ -29,7 +29,15 @@ parts:
     - file: release-jupytext/2-ParcoursDeGraphes/05-BellmanEtFloyd.md
     - file: release-jupytext/2-ParcoursDeGraphes/06-RushHour.md
     - file: release-jupytext/2-ParcoursDeGraphes/Rapport.md
-
-
+  - caption: 3-ArbresCouvrants
+    numbered: True
+    chapters:
+    - file: release-jupytext/3-ArbresCouvrants/README.md
+    - file: release-jupytext/3-ArbresCouvrants/1-Cycles.md
+    - file: release-jupytext/3-ArbresCouvrants/2-ArbresCouvrants.md
+    - file: release-jupytext/3-ArbresCouvrants/3-Kruskal.md
+    - file: release-jupytext/3-ArbresCouvrants/4-Prim.md
+    - file: release-jupytext/3-ArbresCouvrants/5-UnionFind.md 
+    - file: release-jupytext/3-ArbresCouvrants/Rapport.md 
 
     

@@ -18,7 +18,7 @@ kernelspec:
 
 Avant de mettre en oeuvre l'algorithme de Kruskal, ce qui va nécessiter d'introduire une nouvelle structure de données, regardons rapidement l'algorithme de Prim.
 
-### Principe
+## Principe
 
 L'algorithme de Prim est très similaire à l'algorithme de Dijkstra qui calcule un plus court chemin depuis un sommet source : à partir d'un sommet source (choisi de façon arbitraire), "Prim" effectue un parcours en largeur, pour ajouter successivement de façon vorace (algorithme glouton), les sommets extrémités d'arêtes de poids minimal, en évitant de créer un cycle avec les sommets préalablement choisis.
 
@@ -28,7 +28,7 @@ De façon imagée, _Prim fait bien pousser l'arbre à partir de sa racine-source
 
 +++
 
-### Invariant 
+## Invariant 
 
 Avant une itération de l'algorithme, notons :
 
@@ -90,7 +90,7 @@ Voilà deux graphes auxquels vous allez appliquer _à la main_ l'algorithme de P
 
 +++
 
-### Complexité
+## Complexité
 
 Comme pour l'algorithme de Dijkstra, la complexité dépend de l'implantation de la file de priorité (FP) et de la représentation du graphe.
 
