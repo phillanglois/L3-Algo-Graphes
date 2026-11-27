@@ -25,6 +25,8 @@ l'algorithme.
 
 +++ {"deletable": false, "editable": false}
 
+## SD Union-Find
+
 La structure de données
 [***Union-Find***](https://fr.wikipedia.org/wiki/Union-find)
 représente une partition d'un ensemble fini. On rappelle qu'une
@@ -108,9 +110,9 @@ calculer les composantes connexes :
 
 +++ {"deletable": false, "editable": false}
 
-## Application : Construction d'un labyrinthe
+## OPTIONNEL Application : Construction d'un labyrinthe
 
-:::{admonition} Exercice
+:::{admonition} Mini-projet
 
 En partant du graphe grille $m*n$, construire un labyrinthe parfait à
 l'aide d'un arbre couvrant. On pourra faire un affichage ASCII comme
