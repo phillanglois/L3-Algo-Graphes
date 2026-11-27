@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Les cycles d’un graphe &#8212; Algorithmique des graphes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'release-jupytext/3-ArbresCouvrants/1-Cycles';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Arbres couvrants, algorithmes de Kruskal et Prim" href="2-ArbresCouvrants.html" />
+    <link rel="prev" title="1. Thème 4: arbres couvrants" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/graphe.png" class="logo__image only-light" alt="Algorithmique des graphes - Home"/>
+    <img src="../../_static/graphe.png" class="logo__image only-dark pst-js-only" alt="Algorithmique des graphes - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1-StructuresDeDonnees</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/README.html">1. Thème 1: Structures de données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/00-PriseEnMain.html">2. Prise en main de l’environnement de travail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/01-Introduction.html">3. Introduction aux graphes et leurs structures de données</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/02-Comprehensions.html">4. Listes en compréhension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/03-Implantation.html">5. Implantation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1-StructuresDeDonnees/Rapport.html">6. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2-ParcoursDeGraphes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/README.html">1. Thème 2 : Parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/00-Graph.html">2. Bibliothèque de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/01-ParcoursDeGraphe.html">3. Étude d’un algorithme de parcours de graphes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/02-ParcoursEnLargeur.html">4. Parcours en largeur et calcul de distances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/03-ParcoursEnProfondeur.html">5. Parcours en profondeur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/04-Dijkstra.html">6. Plus courts chemins, avec poids positifs: l’algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/05-BellmanEtFloyd.html">7. Plus courts chemins, avec poids de signe quelconque : algorithmes de Bellman-Ford et de Floyd-Warshall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/06-RushHour.html">8. Problème 2: Rush Hour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-ParcoursDeGraphes/Rapport.html">9. Rapport de TP</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3-ArbresCouvrants</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Thème 4: arbres couvrants</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Les cycles d’un graphe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-ArbresCouvrants.html">3. Arbres couvrants, algorithmes de Kruskal et Prim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-Kruskal.html">4. Étude de l’algorithme de Kruskal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-Prim.html">5. Étude de l’algorithme de Prim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-UnionFind.html">6. Stucture de données Union-Find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rapport.html">7. Thème 4 : arbres couvrants</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/phillanglois/L3-AlgoGraphes/main?urlpath=tree/release-jupytext/3-ArbresCouvrants/1-Cycles.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/phillanglois/L3-AlgoGraphes/issues/new?title=Issue%20on%20page%20%2Frelease-jupytext/3-ArbresCouvrants/1-Cycles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/3-ArbresCouvrants/1-Cycles.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/release-jupytext/3-ArbresCouvrants/1-Cycles.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Les cycles d’un graphe</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-routage-dans-les-reseaux">2.1. Motivation : routage dans les réseaux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-formelle">2.2. Définition formelle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-de-la-recherche-de-cycles-dans-un-graphe">2.3. Problème de la recherche de cycles dans un graphe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemme-fondamental-des-cycles-dans-un-graphe">2.3.1. Lemme fondamental des cycles dans un graphe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombre-d-arcs-dans-un-graphe-et-cycles">2.3.2. Nombre d’arcs dans un graphe et cycles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notion-d-arbre">2.4. Notion d’arbre</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="les-cycles-d-un-graphe">
+<h1><span class="section-number">2. </span>Les cycles d’un graphe<a class="headerlink" href="#les-cycles-d-un-graphe" title="Link to this heading">#</a></h1>
+<section id="motivation-routage-dans-les-reseaux">
+<h2><span class="section-number">2.1. </span>Motivation : routage dans les réseaux<a class="headerlink" href="#motivation-routage-dans-les-reseaux" title="Link to this heading">#</a></h2>
+<p>Dans ce cours, nous aborderons les notions de cycles, de connexité et
+d’arbres couvrants dans les graphes. Pour motiver cela, nous
+commençons par introduire la tâche de broadcast dans les réseaux qui
+nous amènera au <a class="reference external" href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">protocole d’arbre
+couvrant</a>.</p>
+<div class="admonition-definition-broadcast admonition">
+<p class="admonition-title">Définition: broadcast</p>
+<p>Dans une tâche de <em><strong>broadcast</strong></em>, un noeud d’un réseau émet
+une information qui doit être <strong>retransmise</strong> à tous les noeuds du
+réseau.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cette tâche n’est réalisable que si le graphe est connexe !</p>
+</div>
+<div class="admonition-proposition-d-algorithme admonition">
+<p class="admonition-title">Proposition d’algorithme</p>
+<p>Chaque noeud qui reçoit l’information la retransmet à tous ses voisins
+sauf celui duquel il l’a reçu.</p>
+</div>
+<div class="admonition-probleme admonition">
+<p class="admonition-title">Problème</p>
+<p>S’il y a un cycle dans le réseau, l’information va tourner
+indéfiniment le long du cycle. En réalité, la situation est même bien
+pire car certains noeuds du réseau vont dupliquer l’information
+(phénomène de «<strong>broadcast storm</strong>»).</p>
+</div>
+</section>
+<section id="definition-formelle">
+<h2><span class="section-number">2.2. </span>Définition formelle<a class="headerlink" href="#definition-formelle" title="Link to this heading">#</a></h2>
+<div class="admonition-definitions admonition">
+<p class="admonition-title">Définitions</p>
+<p>Un <em><strong>cycle</strong></em> d’un graphe <span class="math notranslate nohighlight">\(G = (N, E)\)</span> est une liste <span class="math notranslate nohighlight">\(C =
+(c_0, \dots, c_{k-1})\)</span> de sommets telle que :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k &gt; 2\)</span> : on interdit en particulier les allez-retours;</p></li>
+<li><p>les <span class="math notranslate nohighlight">\(c_i\)</span> sont distincts;</p></li>
+<li><p>pour tout <span class="math notranslate nohighlight">\(i\)</span> entier, <span class="math notranslate nohighlight">\((c_i, c_{i+1})\)</span> – où <span class="math notranslate nohighlight">\(i\)</span> est considéré
+modulo <span class="math notranslate nohighlight">\(k\)</span> – est une arrête de <span class="math notranslate nohighlight">\(G\)</span>; notamment <span class="math notranslate nohighlight">\((c_{k-1}, c_0)\)</span> est
+aussi une arête.</p></li>
+</ul>
+<p>Dans le cas d’un graphe orienté, la notion de cycle ne tient pas
+compte du sens des arêtes. Si l’on suit toujours les arêtes dans leurs
+sens, on parle alors de <em><strong>circuit</strong></em>.</p>
+</div>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le graphe suivant:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/arb-001bis.jpg"><img alt="../../_images/arb-001bis.jpg" src="../../_images/arb-001bis.jpg" style="width: 50%;" />
+</a>
+</figure>
+<p>Les chemins suivants sont des cycles : <span class="math notranslate nohighlight">\((1, 2, 13)\)</span> et <span class="math notranslate nohighlight">\((4, 7, 12, 2, 1)\)</span>.</p>
+<p>Les chemins suivants ne sont pas des cycles :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((11, 10, 12, 8, 9, 10, 13)\)</span> : passe deux fois par le noeud <span class="math notranslate nohighlight">\(10\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\((11, 12, 7)\)</span> : <span class="math notranslate nohighlight">\(7 - 11\)</span> n’est pas une arête.</p></li>
+</ul>
+</div>
+<p>On s’intéresse à une première tâche simple.</p>
+<div class="admonition-tache admonition">
+<p class="admonition-title">Tâche</p>
+<p>Étant donné un graphe <span class="math notranslate nohighlight">\(G\)</span> et un chemin <span class="math notranslate nohighlight">\(s\)</span>, déterminer si <span class="math notranslate nohighlight">\(s\)</span> est un
+cycle de <span class="math notranslate nohighlight">\(G\)</span> (méthode <code class="docutils literal notranslate"><span class="pre">G.is_cycle(s)</span></code>).</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<ol class="arabic">
+<li><p>Remplacez le ficher <code class="docutils literal notranslate"><span class="pre">graph.py</span></code> par le vôtre après y avoir copié et
+collé la partie suivant le commentaire</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Partie sur les cycles dans un graphe à copier dans votre solution`</span>
+</pre></div>
+</div>
+</li>
+<li><p>Implantez et testez la méthode <code class="docutils literal notranslate"><span class="pre">is_cycle</span></code>.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Indication</p>
+<p>Comme d’habitude, vous pouvez commencer par implanter cette méthode
+incrémentalement sous forme d’une fonction dans une feuille Jupyter,
+puis la déplacer dans la classe graphe.</p>
+</div>
+</div>
+</section>
+<section id="probleme-de-la-recherche-de-cycles-dans-un-graphe">
+<h2><span class="section-number">2.3. </span>Problème de la recherche de cycles dans un graphe<a class="headerlink" href="#probleme-de-la-recherche-de-cycles-dans-un-graphe" title="Link to this heading">#</a></h2>
+<p>Nous allons maintenant aborder les tâches suivantes.</p>
+<div class="admonition-taches admonition">
+<p class="admonition-title">Tâches</p>
+<p>Étant donné un graphe <span class="math notranslate nohighlight">\(G\)</span>:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(G\)</span> a-t-il un cycle ? Dans le cas contraire, le graphe est dit
+<em><strong>acyclique</strong></em>. Méthode <code class="docutils literal notranslate"><span class="pre">G.is_acyclic()</span></code>.</p></li>
+<li><p>trouver un cycle de <span class="math notranslate nohighlight">\(G\)</span> : Méthode <code class="docutils literal notranslate"><span class="pre">G.find_cycle()</span></code>;</p></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il n’est pas forcément nécessaire de trouver un cycle pour savoir qu’un graphe contient un cycle.</p>
+</div>
+<section id="lemme-fondamental-des-cycles-dans-un-graphe">
+<h3><span class="section-number">2.3.1. </span>Lemme fondamental des cycles dans un graphe<a class="headerlink" href="#lemme-fondamental-des-cycles-dans-un-graphe" title="Link to this heading">#</a></h3>
+<div class="admonition-lemme-1 admonition">
+<p class="admonition-title">Lemme 1</p>
+<p>Soit <span class="math notranslate nohighlight">\(G\)</span> un graphe (simple, non orienté). Soient <span class="math notranslate nohighlight">\(u\)</span> et <span class="math notranslate nohighlight">\(v\)</span> deux
+sommets de <span class="math notranslate nohighlight">\(G\)</span> tel que <span class="math notranslate nohighlight">\(u - v\)</span> n’est pas une arête de <span class="math notranslate nohighlight">\(G\)</span>. Soit <span class="math notranslate nohighlight">\(G'\)</span>
+le graphe ontenu en ajoutant <span class="math notranslate nohighlight">\(u-v\)</span> à <span class="math notranslate nohighlight">\(G\)</span>. Alors, de deux choses
+l’une :</p>
+<ul class="simple">
+<li><p>soit <span class="math notranslate nohighlight">\(u\)</span> et <span class="math notranslate nohighlight">\(v\)</span> sont dans la même composante connexe de <span class="math notranslate nohighlight">\(G\)</span>, et il y
+a un cycle dans <span class="math notranslate nohighlight">\(G'\)</span> de la forme <span class="math notranslate nohighlight">\((u, \dots, v)\)</span>;</p></li>
+<li><p>soit <span class="math notranslate nohighlight">\(u\)</span> et <span class="math notranslate nohighlight">\(v\)</span> ne sont pas dans la même composante connexe de <span class="math notranslate nohighlight">\(G\)</span>
+et alors <span class="math notranslate nohighlight">\(G'\)</span> possège une composante connexe de moins que <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
+</ul>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Démontrez le lemme précédent.</p>
+</div>
+</section>
+<section id="nombre-d-arcs-dans-un-graphe-et-cycles">
+<h3><span class="section-number">2.3.2. </span>Nombre d’arcs dans un graphe et cycles<a class="headerlink" href="#nombre-d-arcs-dans-un-graphe-et-cycles" title="Link to this heading">#</a></h3>
+<div class="admonition-proposition-2 admonition">
+<p class="admonition-title">Proposition 2</p>
+<p>Soit <span class="math notranslate nohighlight">\(G = (N; E)\)</span> un graphe. Alors:</p>
+<ol class="arabic simple">
+<li><p>Si <span class="math notranslate nohighlight">\(G\)</span> est connexe, alors <span class="math notranslate nohighlight">\(|E| \geq |N| - 1\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(G\)</span> est sans cycle, alors <span class="math notranslate nohighlight">\(|E|\leq |N| - 1\)</span>.</p></li>
+</ol>
+</div>
+<div class="admonition-demonstration admonition">
+<p class="admonition-title">Démonstration</p>
+<p>On va partir du graphe <span class="math notranslate nohighlight">\((N, \emptyset)\)</span> et l’on va rajouter une à une
+les arêtes de <span class="math notranslate nohighlight">\(G\)</span>. On remarque qu’au départ le nombre de composantes
+connexes est <span class="math notranslate nohighlight">\(|N|\)</span> et qu’il y aura <span class="math notranslate nohighlight">\(|E|\)</span> étapes où l’on rajoute une
+arête.</p>
+<ol class="arabic simple">
+<li><p>Comme à chaque étape le nombre de composantes connexes diminue au
+plus de <span class="math notranslate nohighlight">\(1\)</span>, il faut au moins <span class="math notranslate nohighlight">\(|N| - 1\)</span> étapes pour que le graphe
+devienne connexe (de <span class="math notranslate nohighlight">\(N\)</span> composantes connexes au début à une
+composante connexe à la fin).</p></li>
+<li><p>Si un cycle a été créé lors d’une étape, alors toutes les étapes
+suivantes le conserve. Supposons maintenant que <span class="math notranslate nohighlight">\(G\)</span> soit sans
+cycles. Alors, à chaque étape, il n’y a pas eu de création de
+cycle et donc le nombre de composantes connexes a été réduit
+exactement de <span class="math notranslate nohighlight">\(1\)</span>. Il y a donc au plus <span class="math notranslate nohighlight">\(|N|-1\)</span> étapes.</p></li>
+</ol>
+</div>
+<p>Dans la preuve du point 2, on a en fait prouvé le résultat plus fort suivant:</p>
+<div class="admonition-proposition-3 admonition">
+<p class="admonition-title">Proposition 3</p>
+<p>Un graphe <span class="math notranslate nohighlight">\(G=(N; E)\)</span> est <a class="reference internal" href="#acyclique"><span class="xref myst">acyclique</span></a> si et seulement si
+$<span class="math notranslate nohighlight">\(|N| = k + |E|\,,\)</span><span class="math notranslate nohighlight">\(
+où \)</span>k$ est le nombre de composantes connexes.</p>
+</div>
+<div class="admonition-algorithme-de-test-d-acyclicite admonition">
+<p class="admonition-title">Algorithme de test d’acyclicité</p>
+<p>Compter les composantes connexes à l’aide d’un parcours de graphe et
+utiliser la proposition 3.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Implantez les méthodes suivantes dans la classe <code class="docutils literal notranslate"><span class="pre">Graph</span></code> :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connected_components</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_connected</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_acyclic</span></code></p></li>
+</ul>
+<p>Pour chacune de ces méthodes, précisez dans la documentation la
+complexité dans le cas le pire.</p>
+</div>
+<div class="admonition-algorithme-find-cycle-g admonition">
+<p class="admonition-title">Algorithme <code class="docutils literal notranslate"><span class="pre">find_cycle(G)</span></code></p>
+<p>Effectuer un parcours en profondeur du graphe en partant d’un noeud et
+en notant pour chaque noeud traversé depuis quel sommet on l’a
+atteint. Si l’on atteint deux fois le même noeud, on a trouvé un
+cycle.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Implantez la méthode <code class="docutils literal notranslate"><span class="pre">find_cycle(G)</span></code> et donnez sa complexité.</p>
+</div>
+</section>
+</section>
+<section id="notion-d-arbre">
+<h2><span class="section-number">2.4. </span>Notion d’arbre<a class="headerlink" href="#notion-d-arbre" title="Link to this heading">#</a></h2>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Un <em><strong>arbre</strong></em> est un graphe <a class="reference internal" href="#connexe"><span class="xref myst">connexe</span></a> et
+<a class="reference internal" href="#acyclique"><span class="xref myst">acyclique</span></a>.</p>
+<p>Dans un arbre, on a pas de problème pour le routage :</p>
+<div class="admonition-proposition-4 admonition">
+<p class="admonition-title">Proposition 4</p>
+<p><span class="math notranslate nohighlight">\(G\)</span> est un arbre si et seulement si, pour tout couple de sommets <span class="math notranslate nohighlight">\(s\)</span>
+et <span class="math notranslate nohighlight">\(t\)</span>, il existe un unique <em><strong>chemin simple</strong></em> (qui ne
+repasse jamais deux fois par le même sommet) de <span class="math notranslate nohighlight">\(s\)</span> à <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</div>
+</div>
+<div class="admonition-proposition-5-caracterisations-d-un-arbre admonition">
+<p class="admonition-title">Proposition 5 (caractérisations d’un arbre)</p>
+<p>Pour un graphe <span class="math notranslate nohighlight">\(T\)</span> à <span class="math notranslate nohighlight">\(n\)</span> sommets, il y a équivalence entre les
+propriétés suivantes :</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(T\)</span> est un arbre;</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> est un graphe connexe à <span class="math notranslate nohighlight">\(n-1\)</span> arêtes;</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> est acyclique à <span class="math notranslate nohighlight">\(n-1\)</span> arêtes;</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> est connexe et la suppression de toute arête le déconnecte;</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> est acyclique et l’ajout de toute arête le rend cyclique.</p></li>
+</ol>
+</div>
+<div class="admonition-demonstration admonition">
+<p class="admonition-title">Démonstration</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1.\Rightarrow 2.\)</span> et <span class="math notranslate nohighlight">\(1.\Rightarrow 3.\)</span> sont des conséquences immédiates de la proposition 2</p></li>
+<li><p><span class="math notranslate nohighlight">\(2.\Rightarrow 1.\)</span> et <span class="math notranslate nohighlight">\(3.\Rightarrow 1.\)</span> sont des conséquences de la proposition 3.</p></li>
+</ul>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Justifiez ci-dessous les équivalences des points 4. et 5.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Implantez la méthode <code class="docutils literal notranslate"><span class="pre">G.is_tree()</span></code> et donnez sa complexité.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./release-jupytext/3-ArbresCouvrants"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Thème 4: arbres couvrants</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2-ArbresCouvrants.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Arbres couvrants, algorithmes de Kruskal et Prim</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-routage-dans-les-reseaux">2.1. Motivation : routage dans les réseaux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-formelle">2.2. Définition formelle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-de-la-recherche-de-cycles-dans-un-graphe">2.3. Problème de la recherche de cycles dans un graphe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemme-fondamental-des-cycles-dans-un-graphe">2.3.1. Lemme fondamental des cycles dans un graphe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombre-d-arcs-dans-un-graphe-et-cycles">2.3.2. Nombre d’arcs dans un graphe et cycles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notion-d-arbre">2.4. Notion d’arbre</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florent Hivert, Viviane Pons, Nicolas M. Thiéry, Ph. Langlois
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
