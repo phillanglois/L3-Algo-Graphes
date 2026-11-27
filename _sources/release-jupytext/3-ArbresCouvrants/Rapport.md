@@ -10,29 +10,23 @@ kernelspec:
   name: python3
 ---
 
-+++ {"deletable": false, "editable": false}
-
-# Thème 4 : arbres couvrants
-
-+++
-
-## Mini rapport de TP
+# Mini rapport de TP
 
 +++ {"deletable": false}
 
-### En quelques mots, qu'avez-vous appris?
+## En quelques mots, qu'avez-vous appris?
 
 % REPLACE THIS LINE BY YOUR ANSWER
 
-### Quelles difficultés avez vous éventuellement rencontrées?
+## Quelles difficultés avez vous éventuellement rencontrées?
 
 % REPLACE THIS LINE BY YOUR ANSWER
 
-### Qu'avez vous aimé ou moins aimé dans ce TP?
+## Qu'avez vous aimé ou moins aimé dans ce TP?
 
 % REPLACE THIS LINE BY YOUR ANSWER
 
-### Notes et commentaires libres
+## Notes et commentaires libres
 
 +++ {"deletable": false, "editable": false}
 
