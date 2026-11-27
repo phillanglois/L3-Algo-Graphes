@@ -24,7 +24,7 @@ Effectuez les feuilles suivantes dans l'ordre :
 4. [4-Prim.md](4-Prim.md)
 5. [5-UnionFind.md](5-UnionFind.md)
 
-Un mini-jet d'application termine la feuille 5 (Union-Find).
+Un mini-projet d'application termine la feuille 5 (Union-Find).
 Ce mini-projet est OPTIONNEL : il n'est pas demandé pour l'évaluation de l'UE.
 
 En revanche, n'oubliez pas de rédiger et déposer votre [mini-rapport](Rapport.md).
